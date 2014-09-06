@@ -1,0 +1,16 @@
+[
+{
+  "modid": "AWEI",
+  "name": "Alpha's Extras",
+  "version": "1.2",
+    "description": "Adds a slew of new items, blocks, food, ores, plants, etc. Everything, really!",
+  "credits": "Alpha Wolf",
+  "logoFile": "",
+  "url": "http://www.dreamspand.com/",
+  "updateUrl": "http://www.dreamspand.com/mods/Alpha'sExtras.zip",
+  "authors": ["Alpha Wolf"],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": []
+}
+]

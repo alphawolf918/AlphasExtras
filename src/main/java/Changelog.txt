@@ -1,0 +1,56 @@
+==Version 2.5==
+
+* Swamp Clay and Better Grass break faster with a shovel.
+* Added Shadow Skeleton mob.
+    * Now renders with bows.
+    * Much taller than the Player.
+    * Drops Shadow Bone item, currently no use yet.
+        * Will be used in the future to tame Shadow Wolves.
+    * Faster than regular Skeletons and do not burn in daylight.
+* Hostile mobs from this mod spawn less.
+* Scorpions no longer poison the Player when near them; the poison now works exactly the same as Cave Spiders.
+* Increased the size of Scorpions by 0.2F - this makes them slightly easier to fight.
+* Iron Stairs have been added.
+    * Can be crafted using iron blocks, not ingots.
+* Hot Springs now spawn in Bad Lands and more often in Deserts.
+* Miner's Land now spawns all vanilla MC ores as well as ores from this mod.
+* Bonemeal can now be used on Acacia Trees to grow them.
+* Lilac now spawns in Forest biomes.
+* Crawler hit box has been expanded.
+* Ducks now lay duck eggs instead of chicken eggs.
+    * Can be thrown like a chicken egg; has a chance to spawn a baby duck
+    * Changed icon of duck egg to have its own texture.
+    * Can be cooked into fried eggs, just like chicken eggs.
+    * Unlike chicken eggs, throwing duck eggs causes minimal damage to the assaulted.
+* Ducks can now breathe underwater.
+* Rextured slime block with actual Slime mob texture.
+* Sea Lamps and Shinestone Blocks now much easier to break.
+* Marble now requires an iron pickaxe to mine (this is not true for Black Marble, since it takes the original to craft it).
+* Added Mummies.
+    * Only spawn in Deserts and Desert-like biomes.
+    * Has a chance to drop paper.
+    * Hits hard.
+    * Movement speed is exactly the same as the Shadow Skeleton.
+    * Based off of Zombies, but much more health.
+    * Have their own set of sounds.
+* Redrock Cobble Walls can now be crafted using Redrock Cobble blocks.
+* Heart Flowers now have a chance to drop a Healing Heart item.
+* Underground Bases made of Redrock Cobble now generate in Redrock Mountain biomes.
+    * Has a chance to spawn 16 treasure chests - type of chest is randomly selected each time, and each one has an individual percentage.
+    * Beds and crafting tables should spawn here.
+    * Shinestone will also generate.
+    * Damaged Anvils generate as well.
+* Fish now render in random, varying sizes.
+* Added Fish Flakes item.
+    * When fed to a fish, increases its size by a float value of 0.1F and max health by a float value of 2.0F.
+* Added Fish Food can.
+    * Works exactly like the flakes, but has 10 uses.
+* Sharks will now attack fish on sight.
+* Added Brimstone.
+    * Generates in the Nether - burns forever like Netherrack.
+* Smelting Fueltonium Ore now yields 1 Fuelonite as opposed to two.
+* Added a new Biome called Mushroom Forest.
+    * Big and small mushrooms generate here.
+    * Mooshrooms and Pigshrooms spawn here.
+    * Lots of flowers, tree, clay, grass and sugar cane.
+    * Witches and Shadow Skeletons spawn here.
