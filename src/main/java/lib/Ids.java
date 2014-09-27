@@ -128,6 +128,14 @@ public class Ids {
 	public static final int ironStairsID = 2626;
 	public static final int weatheredBricksID = 2627;
 	public static final int brimStoneID = 2628;
+	public static final int ampCellOffID = 2629;
+	public static final int enderShardOreID = 2630;
+	public static final int ampCellOnID = 2631;
+	public static final int soulGlassID = 2632;
+	public static final int fenceSpruceID = 2633;
+	public static final int fenceJungleID = 2634;
+	public static final int fenceBirchID = 2635;
+	public static final int fenceAcaciaID = 2636;
 	
 	public static final int fuelIngotID = 16109;
 	public static final int friedEggID = 16110;
@@ -161,4 +169,7 @@ public class Ids {
 	public static final int shadowBoneID = 16318;
 	public static final int fishFlakesID = 16319;
 	public static final int fishFoodID = 16320;
+	public static final int enderShardID = 16321;
+	public static final int shrimpRawID = 16322;
+	public static final int shrimpCookedID = 16323;
 }

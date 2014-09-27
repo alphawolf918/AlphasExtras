@@ -10,6 +10,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import alphaitems.blocks.Blocks;
 import alphaitems.items.Items;
+import alphaitems.lib.modhelper.ThermalExpansionHelper;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -62,7 +63,7 @@ public class Recipes {
 				Blocks.amaranthBlock
 				});
 		
-		// Amaranth Ingot (to nugget)
+		// Amaranth Nugget (to ingot)
 		GameRegistry.addRecipe(new ItemStack(Items.ampIngot, 1),
 				new Object[] {
 						"CCC", "CCC", "CCC", 'C', Items.ampNugget
@@ -85,6 +86,18 @@ public class Recipes {
 				1), new Object[] {
 				Blocks.marbleBlock, new ItemStack(Item.dyePowder, 1, 0)
 		});
+		
+		// Ender Shards to Ender Pearl
+		GameRegistry.addRecipe(new ItemStack(Item.enderPearl, 1),
+				new Object[] {
+						"RRR", "R R", "RRR", 'R', Items.enderShard
+				});
+		
+		// Ender Pearl to Ender Shards
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(Items.enderShard, 8), new Object[] {
+				Item.enderPearl
+				});
 		
 		// //Colored Bricks
 		// // (Ingots)
@@ -193,6 +206,13 @@ public class Recipes {
 						Item.stick
 				});
 		
+		// Heartforce Item
+		GameRegistry.addRecipe(new ItemStack(Items.heartForce, 1),
+				new Object[] {
+						"HEH", " A ", "HEH", 'H', Items.heart, 'A',
+						Items.ampIngot, 'E', Item.enderPearl
+				});
+		
 		/*
 		 * Sticks
 		 */
@@ -292,6 +312,12 @@ public class Recipes {
 						Item.ingotIron
 				});
 		
+		// Soul Sand
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.slowSand, 2),
+				new Object[] {
+						Block.dirt, Block.netherrack
+				});
+		
 		addBricks(Items.cbBlue, Blocks.cbBlue);
 		addBricks(Items.cbRed, Blocks.cbRed);
 		addBricks(Items.cbGreen, Blocks.cbGreen);
@@ -333,6 +359,11 @@ public class Recipes {
 		addStairs(Blocks.blackMarbleBlock, Blocks.blackMarbleStairs);
 		addStairs(Block.blockIron, Blocks.ironStairs);
 		
+		addDye(Blocks.aster, Item.dyePowder, 4);
+		addDye(Blocks.cosmos, Item.dyePowder, 9);
+		addDye(Blocks.lilac, Item.dyePowder, 5);
+		addDye(Blocks.orangeFlower, Item.dyePowder, 14);
+		
 		// Slime Block
 		GameRegistry.addRecipe(new ItemStack(Blocks.slimeBlock, 1),
 				new Object[] { "SSS", "SSS", "SSS", 'S', Item.slimeBall });
@@ -357,6 +388,48 @@ public class Recipes {
 		GameRegistry.addRecipe(rrb, new Object[] { "SS ", "SS ", "   ",
 				'S',
 				Blocks.redRock });
+		
+		/*
+		 * Fences
+		 */
+		
+		// Birch Fence
+		GameRegistry.addRecipe(new ItemStack(Blocks.fenceBirch, 1),
+				new Object[] {
+						"OOO", "OFO", "OOO", 'O',
+						new ItemStack(Block.planks, 1, 2), 'F',
+						Block.fence
+				});
+		
+		// Spruce Fence
+		GameRegistry.addRecipe(new ItemStack(Blocks.fenceSpruce, 1),
+				new Object[] {
+						"OOO", "OFO", "OOO", 'O',
+						new ItemStack(Block.planks, 1, 1), 'F',
+						Block.fence
+				});
+		
+		// Jungle Fence
+		GameRegistry.addRecipe(new ItemStack(Blocks.fenceJungle, 1),
+				new Object[] {
+						"OOO", "OFO", "OOO", 'O',
+						new ItemStack(Block.planks, 1, 3), 'F',
+						Block.fence
+				});
+		
+		// Acacia Fence
+		GameRegistry.addRecipe(new ItemStack(Blocks.fenceAcacia, 1),
+				new Object[] {
+						"OOO", "OFO", "OOO", 'O',
+						new ItemStack(Blocks.acaciaPlanks, 1), 'F',
+						Block.fence
+				});
+		
+		// Oak
+		addFence(Block.fence, 0, Blocks.fenceSpruce);
+		addFence(Block.fence, 0, Blocks.fenceBirch);
+		addFence(Block.fence, 0, Blocks.fenceJungle);
+		addFence(Block.fence, 0, Blocks.fenceAcacia);
 		
 		// Cold Smoothstone
 		ItemStack css = new ItemStack(Blocks.coldSandStone, 4);
@@ -485,97 +558,81 @@ public class Recipes {
 		float xp20 = 4F;
 		GameRegistry.addSmelting(input20, output20, xp20);
 		
+		int input201 = Block.slowSand.blockID;
+		ItemStack output201 = new ItemStack(Blocks.resistanceGlass, 1);
+		float xp201 = 8F;
+		GameRegistry.addSmelting(input201, output201, xp201);
+		
+		int input2011 = Items.rawShrimp.itemID;
+		ItemStack output2011 = new ItemStack(Items.cookedShrimp, 1);
+		float xp2011 = 8F;
+		GameRegistry.addSmelting(input2011, output2011, xp2011);
+		
 		// ========[PULVERIZERDATA]========
 		
 		// Regular SPC Ore
 		NBTTagCompound spcSend = new NBTTagCompound();
-		spcSend.setInteger("energy", 1600);
-		spcSend.setCompoundTag("input", new NBTTagCompound());
-		spcSend.setCompoundTag("primaryOutput", new NBTTagCompound());
-		spcSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
-		
-		(new ItemStack(Blocks.spcOre, 1)).writeToNBT(spcSend
-				.getCompoundTag("input"));
-		(new ItemStack(Items.spcItem, 2)).writeToNBT(spcSend
-				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.coal, 1)).writeToNBT(spcSend
-				.getCompoundTag("secondaryOutput"));
-		spcSend.setInteger("secondaryChance", 20);
-		FMLInterModComms.sendMessage("ThermalExpansion",
-				"PulverizerRecipe",
-				spcSend);
+		int pulvEnergy = 1600;
+		int pulvSecondaryChance = 30;
+		ItemStack pulvInput = new ItemStack(Blocks.spcOre, 1);
+		ItemStack pulvOutput = new ItemStack(Items.spcItem, 2);
+		ItemStack pulvSecondaryOutput = new ItemStack(Item.coal, 2);
+		ThermalExpansionHelper.addPulverizerRecipe(pulvEnergy, pulvInput,
+				pulvSecondaryOutput, pulvSecondaryOutput,
+				pulvSecondaryChance);
 		
 		// Nether SPC Ore
 		NBTTagCompound spcnSend = new NBTTagCompound();
-		spcnSend.setInteger("energy", 1800);
-		spcnSend.setCompoundTag("input", new NBTTagCompound());
-		spcnSend.setCompoundTag("primaryOutput", new NBTTagCompound());
-		spcnSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
+		int pulvEnergy1 = 1800;
+		int pulvSecondaryChance1 = 60;
+		ItemStack pulvInput1 = new ItemStack(Blocks.spcNetherOre, 1);
+		ItemStack pulvOutput1 = new ItemStack(Items.spcItem, 4);
+		ItemStack pulvSecondaryOutput1 = new ItemStack(Item.coal, 2);
+		ThermalExpansionHelper.addPulverizerRecipe(pulvEnergy1,
+				pulvInput1, pulvSecondaryOutput, pulvSecondaryOutput1,
+				pulvSecondaryChance1);
 		
-		(new ItemStack(Blocks.spcNetherOre, 1)).writeToNBT(spcnSend
-				.getCompoundTag("input"));
-		(new ItemStack(Items.spcItem, 4)).writeToNBT(spcnSend
-				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.coal, 1)).writeToNBT(spcnSend
-				.getCompoundTag("secondaryOutput"));
-		spcnSend.setInteger("secondaryChance", 40);
-		FMLInterModComms.sendMessage("ThermalExpansion",
-				"PulverizerRecipe",
-				spcnSend);
-		
-		// Ender SPC Ore
+		// Super Charged Ender Ore
 		NBTTagCompound spceSend = new NBTTagCompound();
-		spceSend.setInteger("energy", 2000);
-		spceSend.setCompoundTag("input", new NBTTagCompound());
-		spceSend.setCompoundTag("primaryOutput", new NBTTagCompound());
-		spceSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
-		
-		(new ItemStack(Blocks.enderSpcOre, 1)).writeToNBT(spceSend
-				.getCompoundTag("input"));
-		(new ItemStack(Items.spcItem, 6)).writeToNBT(spceSend
-				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.coal, 1)).writeToNBT(spcnSend
-				.getCompoundTag("secondaryOutput"));
-		spceSend.setInteger("secondaryChance", 60);
-		FMLInterModComms.sendMessage("ThermalExpansion",
-				"PulverizerRecipe",
-				spceSend);
+		int pulvEnergy11 = 2000;
+		int pulvSecondaryChance11 = 80;
+		ItemStack pulvInput11 = new ItemStack(Blocks.enderSpcOre, 1);
+		ItemStack pulvOutput11 = new ItemStack(Items.spcItem, 6);
+		ItemStack pulvSecondaryOutput11 = new ItemStack(Item.coal, 2);
+		ThermalExpansionHelper.addPulverizerRecipe(pulvEnergy11,
+				pulvInput11, pulvSecondaryOutput1, pulvSecondaryOutput11,
+				pulvSecondaryChance11);
 		
 		// Regular FN Ore
 		NBTTagCompound fSend = new NBTTagCompound();
-		fSend.setInteger("energy", 1800);
-		fSend.setCompoundTag("input", new NBTTagCompound());
-		fSend.setCompoundTag("primaryOutput", new NBTTagCompound());
-		fSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
-		
-		(new ItemStack(Blocks.fueltonium, 1)).writeToNBT(fSend
-				.getCompoundTag("input"));
-		(new ItemStack(Items.fuelonite, 2)).writeToNBT(fSend
-				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Items.spcItem, 1)).writeToNBT(fSend
-				.getCompoundTag("secondaryOutput"));
-		fSend.setInteger("secondaryChance", 5);
-		FMLInterModComms.sendMessage("ThermalExpansion",
-				"PulverizerRecipe",
-				fSend);
+		int pulvEnergy111 = 2800;
+		int pulvSecondaryChance111 = 10;
+		ItemStack pulvInput111 = new ItemStack(Blocks.fueltonium, 1);
+		ItemStack pulvOutput111 = new ItemStack(Items.fuelonite, 2);
+		ItemStack pulvSecondaryOutput111 = new ItemStack(Items.spcItem, 2);
+		ThermalExpansionHelper.addPulverizerRecipe(pulvEnergy111,
+				pulvInput111, pulvSecondaryOutput11,
+				pulvSecondaryOutput111, pulvSecondaryChance111);
 		
 		// Nether FN Ore
 		NBTTagCompound fnSend = new NBTTagCompound();
-		fnSend.setInteger("energy", 2200);
-		fnSend.setCompoundTag("input", new NBTTagCompound());
-		fnSend.setCompoundTag("primaryOutput", new NBTTagCompound());
-		fSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
+		int pulvEnergy1111 = 2200;
+		int pulvSecondaryChance1111 = 10;
+		ItemStack pulvInput1111 = new ItemStack(Blocks.fueltonium, 1);
+		ItemStack pulvOutput1111 = new ItemStack(Items.fuelonite, 2);
+		ItemStack pulvSecondaryOutput1111 = new ItemStack(Items.spcItem, 2);
+		ThermalExpansionHelper.addPulverizerRecipe(pulvEnergy1111,
+				pulvInput1111, pulvSecondaryOutput1111,
+				pulvSecondaryOutput1111, pulvSecondaryChance1111);
 		
-		(new ItemStack(Blocks.fnOre, 1)).writeToNBT(fnSend
-				.getCompoundTag("input"));
-		(new ItemStack(Items.fuelonite, 4)).writeToNBT(fnSend
-				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Items.spcItem, 1)).writeToNBT(fnSend
-				.getCompoundTag("secondaryOutput"));
-		fnSend.setInteger("secondaryChance", 10);
-		FMLInterModComms.sendMessage("ThermalExpansion",
-				"PulverizerRecipe",
-				fnSend);
+		// Shard Ore
+		NBTTagCompound enderSend = new NBTTagCompound();
+		int pulvEnergy11111 = 3200;
+		int pulvSecondaryChance11111 = 10;
+		ItemStack pulvInput11111 = new ItemStack(Blocks.enderShardOre, 1);
+		ItemStack pulvOutput11111 = new ItemStack(Items.enderShard, 2);
+		ThermalExpansionHelper.addPulverizerRecipe(pulvEnergy11111,
+				pulvInput11111, pulvOutput11111);
 		
 		// Ender FN Ore
 		NBTTagCompound feSend = new NBTTagCompound();
@@ -625,7 +682,7 @@ public class Recipes {
 		
 		// Wheat
 		NBTTagCompound wheatSend = new NBTTagCompound();
-		wheatSend.setInteger("energy", 500);
+		wheatSend.setInteger("energy", 1000);
 		wheatSend.setCompoundTag("input", new NBTTagCompound());
 		wheatSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		
@@ -636,6 +693,20 @@ public class Recipes {
 		FMLInterModComms.sendMessage("ThermalExpansion",
 				"PulverizerRecipe",
 				wheatSend);
+		
+		// Shrimp
+		NBTTagCompound shrimpSend = new NBTTagCompound();
+		wheatSend.setInteger("energy", 1000);
+		wheatSend.setCompoundTag("input", new NBTTagCompound());
+		wheatSend.setCompoundTag("primaryOutput", new NBTTagCompound());
+		
+		(new ItemStack(Items.rawShrimp, 1)).writeToNBT(shrimpSend
+				.getCompoundTag("input"));
+		(new ItemStack(Items.fishFlakes, 2)).writeToNBT(shrimpSend
+				.getCompoundTag("primaryOutput"));
+		FMLInterModComms.sendMessage("ThermalExpansion",
+				"PulverizerRecipe",
+				shrimpSend);
 		
 		// Amaranth Ore
 		NBTTagCompound ampSend = new NBTTagCompound();
@@ -749,12 +820,19 @@ public class Recipes {
 				"TransposerExtractRecipe", tEx);
 		
 		// Compression Dynamo
+		ThermalExpansionHelper.addCompressionFuel("fuel", pulvEnergy11111);
 		NBTTagCompound cDyn = new NBTTagCompound();
-		cDyn.setString("fluidName", "Fueltonium");
-		cDyn.setInteger("energy", 2000);
+		cDyn.setString("fluidName", "fuelFluid");
+		cDyn.setInteger("energy", 4000);
 		FMLInterModComms.sendMessage("ThermalExpansion",
 				"CompressionFuel",
 				cDyn);
+		
+		// Fueltonium Liquid From Ingot
+		ThermalExpansionHelper.addCrucibleRecipe(5000, new ItemStack(
+				Items.fuelIngot, 1),
+				new FluidStack(Blocks.fuel,
+						FluidContainerRegistry.BUCKET_VOLUME));
 		
 		// ========[/FUELDATA]========
 		
@@ -777,6 +855,13 @@ public class Recipes {
 				spcSend);
 	}
 	
+	public static void addDye(Block flower, Item dye, int damage) {
+		GameRegistry.addShapelessRecipe(new ItemStack(dye, 4, damage),
+				new Object[] {
+				flower
+				});
+	}
+	
 	public static void addBricks(Item coloredBrick, Block coloredBlock) {
 		GameRegistry.addRecipe(new ItemStack(coloredBlock, 1),
 				new Object[] {
@@ -792,6 +877,16 @@ public class Recipes {
 		GameRegistry.addRecipe(new ItemStack(coloredBlock, 1),
 				new Object[] {
 						"CC ", "CC ", "   ", 'C', coloredBrick
+				});
+	}
+	
+	public static void addFence(Block output, int metadata,
+			Block inputFenceType) {
+		GameRegistry.addRecipe(new ItemStack(output, 1),
+				new Object[] {
+						"OOO", "OFO", "OOO", 'O',
+						new ItemStack(Block.planks, 1, metadata), 'F',
+						inputFenceType
 				});
 	}
 	

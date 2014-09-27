@@ -27,6 +27,7 @@ import alphaitems.items.food.Biscuit;
 import alphaitems.items.food.Blackberry;
 import alphaitems.items.food.Blueberry;
 import alphaitems.items.food.CookedDuckMeat;
+import alphaitems.items.food.CookedShrimp;
 import alphaitems.items.food.EnderBerry;
 import alphaitems.items.food.FriedEggItem;
 import alphaitems.items.food.RawDuckMeat;
@@ -115,6 +116,10 @@ public class Items {
 	public static final Item shadowBone = new ShadowBone(Ids.shadowBoneID);
 	public static final Item fishFlakes = new FishFlakes(Ids.fishFlakesID);
 	public static final Item fishFood = new FishFood(Ids.fishFoodID);
+	public static final Item enderShard = new EnderShard(Ids.enderShardID);
+	public static final Item rawShrimp = new RawShrimp(Ids.shrimpRawID);
+	public static final Item cookedShrimp = new CookedShrimp(
+			Ids.shrimpCookedID);
 	
 	public static Item bucketHotWater = new ItemBucket(
 			Ids.hotWaterBucketID,
@@ -183,6 +188,9 @@ public class Items {
 		addItem(shadowBone, "Shadow Bone");
 		addItem(fishFlakes, "Fish Flakes");
 		addItem(fishFood, "Fish Food");
+		addItem(enderShard, "Ender Shard");
+		addItem(rawShrimp, "Raw Shrimp");
+		addItem(cookedShrimp, "Cooked Shrimp");
 	}
 	
 	public static void addItem(Item item, String name) {

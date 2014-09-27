@@ -1,5 +1,7 @@
 package alphaitems.mobs.entities;
 
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
@@ -8,15 +10,20 @@ import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import alphaitems.items.Items;
 
 public class EntityFish extends EntityWaterMob implements IMob, IAnimals {
+	
 	public float squidPitch;
 	public float prevSquidPitch;
 	public float squidYaw;
@@ -31,23 +38,70 @@ public class EntityFish extends EntityWaterMob implements IMob, IAnimals {
 	private float randomMotionVecX;
 	private float randomMotionVecY;
 	private float randomMotionVecZ;
+	protected Random rand = new Random();
+	protected float minSize = 0.1F;
+	protected float maxSize = 4.0F;
 	public EntityAIAvoidEntity ea = new EntityAIAvoidEntity(this,
 			EntityShark.class,
 			8.0F, 0.6D, 0.6D);
 	public EntityAIPanic ea2 = new EntityAIPanic(this, 1.25D);
+	protected float fishEq = this.rand.nextFloat();
+	protected float fishSize = this.fishEq + this.minSize;
+	protected float maxHealthLimit = 20F;
 	
 	public EntityFish(World par1World) {
 		super(par1World);
 		this.setSize(this.width, this.height);
+		this.setFishSize(this.fishSize);
 		this.rotationVelocity = 1.0F / (this.rand.nextFloat() + 1.0F) * 0.2F;
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(1, new EntityAIWander(this, 2.0D));
 		this.tasks.addTask(2, new EntityAIWatchClosest(this,
 				EntityPlayer.class, 10.0F));
 		this.tasks.addTask(3, new EntityAILookIdle(this));
 		this.tasks.addTask(4, ea2);
 		this.tasks.addTask(5, ea);
 		this.setHealth(2F);
+	}
+	
+	@Override
+	public boolean interact(EntityPlayer par1EntityPlayer)
+	{
+		ItemStack itemstack = par1EntityPlayer.inventory.getCurrentItem();
+		boolean flag = itemstack != null
+				&& itemstack.itemID == Item.monsterPlacer.itemID;
+		if (flag)
+		{
+			return super.interact(par1EntityPlayer);
+		}
+		if (itemstack.itemID == Items.fishFlakes.itemID
+				|| itemstack.itemID == Items.fishFood.itemID) {
+			this.setFishSize(this.getFishSize() + 0.1F);
+			float maxHealth = this.getMaxHealth();
+			AttributeInstance attrMaxHealth = this
+					.getEntityAttribute(SharedMonsterAttributes.maxHealth);
+			if (attrMaxHealth.getAttributeValue() <= this.maxHealthLimit) {
+				maxHealth += 2.0F;
+				this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+						.setAttribute(maxHealth);
+				this.setHealth(maxHealth);
+			}
+			if (!par1EntityPlayer.capabilities.isCreativeMode) {
+				if (itemstack.itemID == Items.fishFlakes.itemID) {
+					--itemstack.stackSize;
+				} else if (itemstack.itemID == Items.fishFood.itemID) {
+					itemstack.damageItem(1, par1EntityPlayer);
+				}
+				if (itemstack.stackSize <= 0)
+				{
+					par1EntityPlayer.inventory.setInventorySlotContents(
+							par1EntityPlayer.inventory.currentItem,
+							(ItemStack) null);
+				}
+			}
+			return true;
+		}
+		return false;
 	}
 	
 	@Override
@@ -87,6 +141,38 @@ public class EntityFish extends EntityWaterMob implements IMob, IAnimals {
 	@Override
 	public boolean canBreatheUnderwater() {
 		return true;
+	}
+	
+	@Override
+	public void entityInit() {
+		super.entityInit();
+		this.dataWatcher.addObject(26, Float.valueOf(fishSize));
+	}
+	
+	@Override
+	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
+	{
+		super.writeEntityToNBT(par1NBTTagCompound);
+		par1NBTTagCompound.setFloat("FishSize", this.getFishSize());
+	}
+	
+	@Override
+	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
+	{
+		super.readEntityFromNBT(par1NBTTagCompound);
+		this.setFishSize(par1NBTTagCompound.getFloat("FishSize"));
+	}
+	
+	public void setFishSize(float par1) {
+		if (this.getFishSize() < maxSize) {
+			this.dataWatcher.updateObject(26, Float.valueOf(par1));
+		} else {
+			this.dataWatcher.updateObject(26, Float.valueOf(maxSize));
+		}
+	}
+	
+	public float getFishSize() {
+		return this.dataWatcher.getWatchableObjectFloat(26);
 	}
 	
 	@Override

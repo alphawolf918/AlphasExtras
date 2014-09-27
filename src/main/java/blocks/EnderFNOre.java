@@ -3,8 +3,9 @@ package alphaitems.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import alphaitems.creativetabs.ModTabs;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 
 public class EnderFNOre extends Block {
 	public EnderFNOre(int par1) {
@@ -14,7 +15,7 @@ public class EnderFNOre extends Block {
 		this.setHardness(14.0F);
 		this.setResistance(10.0F);
 		this.setTextureName("awei:enderfnore");
-		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 4);
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.AMARANTH);
 	}
 	
 	@Override

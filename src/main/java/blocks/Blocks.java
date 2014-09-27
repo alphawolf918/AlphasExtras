@@ -37,6 +37,7 @@ import alphaitems.blocks.plants.trees.acacia.AcaciaLog;
 import alphaitems.blocks.plants.trees.acacia.AcaciaPlanks;
 import alphaitems.blocks.plants.trees.acacia.AcaciaSapling;
 import alphaitems.lib.Ids;
+import alphaitems.lib.State;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -241,12 +242,46 @@ public class Blocks {
 	public static final Block weatheredBricks = new WeatheredBricks(
 			Ids.weatheredBricksID);
 	public static final Block brimStone = new Brimstone(Ids.brimStoneID);
+	public static final Block enderShardOre = new EnderShardOre(
+			Ids.enderShardOreID);
+	public static final Block resistanceGlass = new SoulGlass(
+			Ids.soulGlassID);
+	
+	public static final Block fenceSpruce = (new RailingBlock(
+			Ids.fenceSpruceID,
+			"planks_spruce",
+			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			.setStepSound(Block.soundWoodFootstep)
+			.setUnlocalizedName("fenceSpruce");
+	public static final Block fenceJungle = (new RailingBlock(
+			Ids.fenceJungleID,
+			"planks_jungle",
+			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			.setStepSound(Block.soundWoodFootstep)
+			.setUnlocalizedName("fenceJungle");
+	public static final Block fenceBirch = (new RailingBlock(
+			Ids.fenceBirchID,
+			"planks_birch",
+			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			.setStepSound(Block.soundWoodFootstep)
+			.setUnlocalizedName("fenceBirch");
+	public static final Block fenceAcacia = (new RailingBlock(
+			Ids.fenceAcaciaID,
+			"awei:acaciaplanks",
+			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			.setStepSound(Block.soundWoodFootstep)
+			.setUnlocalizedName("fenceAcacia");
+	
+	public static final Block ampCellOff = new AMPCell(Ids.ampCellOffID,
+			State.OFF, "off");
+	public static final Block ampCellOn = new AMPCell(Ids.ampCellOnID,
+			State.ON, "on");
 	
 	public static Fluid hotWater = new FluidHotWater("HotWater");
 	public static Block hotWaterBlock = new BlockHotWater(
 			Ids.hotSpringBlockID,
 			hotWater);
-	public static Fluid fuel = new FluidFuel("LiqidFuel");
+	public static Fluid fuel = new FluidFuel("LiquidFuel");
 	public static Block fuelLiquidBlock = new BlockFuel(Ids.fuelLiquidID,
 			fuel);
 	
@@ -346,6 +381,17 @@ public class Blocks {
 		addBlock(ironStairs, "Iron Stairs");
 		addBlock(weatheredBricks, "Weathered Bricks");
 		addBlock(brimStone, "Brimstone");
+		addBlock(ampCellOff, "Ampstone Cell");
+		addBlock(enderShardOre, "Shard Ore");
+		addBlock(resistanceGlass, "Soul Glass");
+		addBlock(fenceSpruce, "Spruce Fence");
+		addBlock(fenceJungle, "Jungle Fence");
+		addBlock(fenceBirch, "Birch Fence");
+		addBlock(fenceAcacia, "Acacia Fence");
+	}
+	
+	public static void registerBlock(Block par1Block, String par2Name) {
+		GameRegistry.registerBlock(par1Block, par2Name);
 	}
 	
 	public static void addBlock(Block par1Block, String par2Name) {

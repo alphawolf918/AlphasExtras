@@ -4,21 +4,20 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.common.MinecraftForge;
-import alphaitems.creativetabs.ModTabs;
 import alphaitems.items.Items;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 
 public class HeartBlock extends Block {
 	
 	public HeartBlock(int par1) {
 		super(par1, Material.rock);
-		this.setCreativeTab(ModTabs.aiTab);
+		Methods.setTab(this);
 		this.setUnlocalizedName("heartblock");
-		this.setResistance(10.0F);
-		this.setHardness(8.0F);
+		Methods.setBlockRH(this, 10.0F, 8.0F);
 		this.setStepSound(Block.soundStoneFootstep);
 		this.setTextureName("awei:heartblock");
-		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 4);
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.AMARANTH);
 	}
 	
 	@Override

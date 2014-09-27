@@ -6,6 +6,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 import alphaitems.creativetabs.ModTabs;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 
 public class RedshroomBlock extends Block {
 	
@@ -13,10 +15,11 @@ public class RedshroomBlock extends Block {
 		super(par1, Material.coral);
 		this.setCreativeTab(ModTabs.aiTab);
 		this.setUnlocalizedName("redshroomblock");
-		this.setHardness(3F);
+		this.setHardness(1.2F);
 		this.setResistance(0F);
 		this.setStepSound(Block.soundPowderFootstep);
 		this.setTextureName("awei:shroomblock");
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.WOOD);
 	}
 	
 	@Override

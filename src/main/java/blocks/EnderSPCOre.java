@@ -5,9 +5,10 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import alphaitems.creativetabs.ModTabs;
 import alphaitems.items.Items;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 
 public class EnderSPCOre extends Block {
 	public EnderSPCOre(int par1) {
@@ -17,7 +18,7 @@ public class EnderSPCOre extends Block {
 		this.setHardness(13.0F);
 		this.setResistance(9.0F);
 		this.setTextureName("awei:enderspcore");
-		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 3);
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.DIAMOND);
 	}
 	
 	@Override

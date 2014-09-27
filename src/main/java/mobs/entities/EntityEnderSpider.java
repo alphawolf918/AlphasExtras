@@ -6,7 +6,6 @@ import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 
 public class EntityEnderSpider extends EntitySpider {
@@ -63,9 +62,6 @@ public class EntityEnderSpider extends EntitySpider {
 		EnderTeleportEvent event = new EnderTeleportEvent(this, par1,
 				par3,
 				par5, 0);
-		if (MinecraftForge.EVENT_BUS.post(event)) {
-			return false;
-		}
 		
 		double d3 = this.posX;
 		double d4 = this.posY;

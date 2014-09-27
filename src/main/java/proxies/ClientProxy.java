@@ -1,12 +1,16 @@
 package alphaitems.proxies;
 
 import net.minecraft.client.model.ModelOcelot;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraftforge.common.MinecraftForge;
+import alphaitems.items.Items;
 import alphaitems.managers.SoundManager;
 import alphaitems.mobs.entities.EntityDiamondGolem;
 import alphaitems.mobs.entities.EntityDuck;
 import alphaitems.mobs.entities.EntityEnderSpider;
 import alphaitems.mobs.entities.EntityFish;
+import alphaitems.mobs.entities.EntityHellduck;
 import alphaitems.mobs.entities.EntityHog;
 import alphaitems.mobs.entities.EntityHogZombie;
 import alphaitems.mobs.entities.EntityJellyfish;
@@ -16,9 +20,11 @@ import alphaitems.mobs.entities.EntityPigshroom;
 import alphaitems.mobs.entities.EntityScorpion;
 import alphaitems.mobs.entities.EntityShadowSkeleton;
 import alphaitems.mobs.entities.EntityShark;
+import alphaitems.mobs.entities.EntityShrimp;
 import alphaitems.mobs.entities.EntitySpiderling;
 import alphaitems.mobs.entities.EntityTiger;
 import alphaitems.mobs.entities.boss.EntityCrawler;
+import alphaitems.mobs.entities.projectiles.EntityDuckEgg;
 import alphaitems.mobs.models.ModelCrawler;
 import alphaitems.mobs.models.ModelDiamondGolem;
 import alphaitems.mobs.models.ModelDuck;
@@ -33,12 +39,14 @@ import alphaitems.mobs.models.ModelPigshroom;
 import alphaitems.mobs.models.ModelScorpion;
 import alphaitems.mobs.models.ModelShadowSkeleton;
 import alphaitems.mobs.models.ModelShark;
+import alphaitems.mobs.models.ModelShrimp;
 import alphaitems.mobs.models.ModelSpiderling;
 import alphaitems.mobs.renders.RenderCrawler;
 import alphaitems.mobs.renders.RenderDiamondGolem;
 import alphaitems.mobs.renders.RenderDuck;
 import alphaitems.mobs.renders.RenderEnderSpider;
 import alphaitems.mobs.renders.RenderFish;
+import alphaitems.mobs.renders.RenderHellDuck;
 import alphaitems.mobs.renders.RenderHog;
 import alphaitems.mobs.renders.RenderJellyfish;
 import alphaitems.mobs.renders.RenderMegaCreeper;
@@ -47,6 +55,7 @@ import alphaitems.mobs.renders.RenderPigshroom;
 import alphaitems.mobs.renders.RenderScorpion;
 import alphaitems.mobs.renders.RenderShadowSkeleton;
 import alphaitems.mobs.renders.RenderShark;
+import alphaitems.mobs.renders.RenderShrimp;
 import alphaitems.mobs.renders.RenderSpiderling;
 import alphaitems.mobs.renders.RenderTiger;
 import alphaitems.mobs.renders.RenderZombieHogman;
@@ -121,6 +130,17 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(
 				EntityMummy.class,
 				new RenderMummy(new ModelMummy(), 0.5F));
+		
+		RenderManager.instance.entityRenderMap.put(EntityDuckEgg.class,
+				new RenderSnowball(Items.duckEgg));
+		
+		RenderingRegistry.registerEntityRenderingHandler(
+				EntityHellduck.class,
+				new RenderHellDuck(new ModelDuck(), 0.5F));
+		
+		RenderingRegistry.registerEntityRenderingHandler(
+				EntityShrimp.class,
+				new RenderShrimp(new ModelShrimp(), 0.5F));
 		
 	}
 	

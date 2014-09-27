@@ -4,8 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import alphaitems.creativetabs.ModTabs;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 import alphaitems.lib.ModInfo;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,7 +18,7 @@ public class FuelNetherOre extends Block {
 		this.setUnlocalizedName("fuel_nether_ore");
 		this.setHardness(14.0F);
 		this.setResistance(10.0F);
-		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 4);
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.AMARANTH);
 	}
 	
 	@Override

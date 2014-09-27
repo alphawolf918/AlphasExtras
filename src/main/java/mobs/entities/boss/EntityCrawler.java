@@ -29,7 +29,7 @@ public class EntityCrawler extends EntitySpider implements
 	
 	public EntityCrawler(World par1World) {
 		super(par1World);
-		this.setSize(this.width * 2, this.height * 2);
+		this.setSize(this.width * 4, this.height * 4);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this,
 				EntityPlayer.class, 4.5D, true));
@@ -132,7 +132,7 @@ public class EntityCrawler extends EntitySpider implements
 					this.posZ, this.rotationYaw, this.rotationPitch);
 			for (int i = 1; i < randIntI; i++) {
 				this.worldObj.spawnEntityInWorld(spider);
-				this.heal(randIntI * 10.0F);
+				this.heal(randIntI * 6.0F);
 			}
 			ticksExisted = 0;
 		}
@@ -141,7 +141,7 @@ public class EntityCrawler extends EntitySpider implements
 			this.worldObj.setBlock((int) this.posX, (int) this.posY,
 					(int) this.posZ,
 					Blocks.crawlerEgg.blockID);
-			this.heal(randIntI * 10.0F);
+			this.heal(randIntI * 6.0F);
 		}
 	}
 	

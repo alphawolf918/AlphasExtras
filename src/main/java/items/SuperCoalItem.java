@@ -1,23 +1,13 @@
 package alphaitems.items;
 
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemCoal;
 import alphaitems.creativetabs.ModTabs;
-import alphaitems.lib.ModInfo;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class SuperCoalItem extends Item {
+public class SuperCoalItem extends ItemCoal {
 	public SuperCoalItem(int par1) {
 		super(par1);
 		this.setCreativeTab(ModTabs.aiTab);
 		this.setUnlocalizedName("spcitem");
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerIcons(IconRegister icon) {
-		itemIcon = icon.registerIcon(ModInfo.ID.toLowerCase() + ":"
-				+ "superchargedcoal");
+		this.setTextureName("awei:superchargedcoal");
 	}
 }

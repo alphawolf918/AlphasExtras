@@ -8,7 +8,7 @@ import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityHogZombie extends EntityZombie
+public class EntityHogZombie extends EntityPigZombie
 {
 	private static final UUID field_110189_bq = UUID
 			.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
@@ -138,7 +138,8 @@ public class EntityHogZombie extends EntityZombie
 	 * Called when the entity is attacked.
 	 */
 	@Override
-	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2)
+	public boolean attackEntityFrom(DamageSource par1DamageSource,
+			float par2)
 	{
 		if (this.isEntityInvulnerable())
 		{
@@ -150,8 +151,10 @@ public class EntityHogZombie extends EntityZombie
 			
 			if (entity instanceof EntityPlayer)
 			{
-				List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(
-						this, this.boundingBox.expand(32.0D, 32.0D, 32.0D));
+				List list = this.worldObj
+						.getEntitiesWithinAABBExcludingEntity(
+								this, this.boundingBox.expand(32.0D,
+										32.0D, 32.0D));
 				
 				for (int i = 0; i < list.size(); ++i)
 				{
@@ -268,7 +271,8 @@ public class EntityHogZombie extends EntityZombie
 	}
 	
 	@Override
-	public EntityLivingData onSpawnWithEgg(EntityLivingData par1EntityLivingData)
+	public EntityLivingData onSpawnWithEgg(
+			EntityLivingData par1EntityLivingData)
 	{
 		super.onSpawnWithEgg(par1EntityLivingData);
 		this.setVillager(false);

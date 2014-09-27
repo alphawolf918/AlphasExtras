@@ -1,6 +1,6 @@
 package alphaitems.lib;
 
-import net.minecraft.item.Item;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import alphaitems.blocks.Blocks;
@@ -12,6 +12,9 @@ public class OreDict {
 		// Better Glass
 		OreDictionary
 				.registerOre("glass", new ItemStack(Blocks.betterGlass, 1));
+		OreDictionary
+				.registerOre("glass", new ItemStack(
+						Blocks.resistanceGlass, 1));
 		
 		// Fueltonium Ingot
 		OreDictionary.registerOre("ingotUranium", new ItemStack(
@@ -21,7 +24,6 @@ public class OreDict {
 		OreDictionary.registerOre("ingotButter", Items.butterItem);
 		
 		// Swamp Clay
-		OreDictionary.registerOre("clay", new ItemStack(Item.clay, 1));
 		OreDictionary.registerOre("clay", new ItemStack(
 				Items.swampClayBall, 1));
 		
@@ -32,5 +34,12 @@ public class OreDict {
 		OreDictionary.registerOre("plankWood", Blocks.acaciaPlanks);
 		OreDictionary.registerOre("treeSapling", Blocks.acaciaSapling);
 		OreDictionary.registerOre("treeLeaves", Blocks.acaciaLeaves);
+		
+		// Fences
+		OreDictionary.registerOre("fenceWood", Blocks.fenceAcacia);
+		OreDictionary.registerOre("fenceWood", Blocks.fenceSpruce);
+		OreDictionary.registerOre("fenceWood", Blocks.fenceBirch);
+		OreDictionary.registerOre("fenceWood", Blocks.fenceJungle);
+		OreDictionary.registerOre("fenceWood", Block.fence);
 	}
 }

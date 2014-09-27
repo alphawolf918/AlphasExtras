@@ -1,5 +1,6 @@
-package alphaitems.mobs.entities;
+package alphaitems.mobs.entities.projectiles;
 
+import alphaitems.mobs.entities.EntityDuck;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.util.DamageSource;

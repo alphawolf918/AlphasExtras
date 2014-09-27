@@ -5,7 +5,7 @@ import net.minecraft.item.ItemEgg;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import alphaitems.creativetabs.ModTabs;
-import alphaitems.mobs.entities.EntityDuckEgg;
+import alphaitems.mobs.entities.projectiles.EntityDuckEgg;
 
 public class DuckEgg extends ItemEgg
 {

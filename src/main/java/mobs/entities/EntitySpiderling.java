@@ -8,8 +8,12 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import alphaitems.blocks.Blocks;
 
 public class EntitySpiderling extends EntityCaveSpider {
+	
+	private static int ticksExisted = 0;
+	
 	public EntitySpiderling(World par1World) {
 		super(par1World);
 	}
@@ -29,12 +33,26 @@ public class EntitySpiderling extends EntityCaveSpider {
 	public void onLivingUpdate()
 	{
 		super.onLivingUpdate();
+		this.ticksExisted++;
 		Random rand = new Random();
 		if (rand.nextInt(100) == 5) {
 			this.worldObj.setBlock((int) this.posX, (int) this.posY,
 					(int) this.posZ,
 					Block.web.blockID);
 		}
+		if (this.ticksExisted >= 1100) {
+			if (rand.nextInt(100) == 5) {
+				this.worldObj.setBlock((int) this.posX, (int) this.posY,
+						(int) this.posZ,
+						Blocks.crawlerEgg.blockID);
+				this.killSpider();
+			}
+		}
+	}
+	
+	public void killSpider() {
+		this.ticksExisted = 0;
+		this.setDead();
 	}
 	
 	@Override

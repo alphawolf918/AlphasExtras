@@ -46,14 +46,15 @@ public class BlockCrawlerEgg extends BlockDragonEgg
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World par1World, int par2, int par3,
+	public void onBlockDestroyedByPlayer(World par1World, int par2,
+			int par3,
 			int par4, int par5) {
 		this.hatchSpider(par1World, par2, par3, par4);
 	}
 	
 	public void hatchSpider(World world, int par2, int par3, int par4) {
 		if ((new Random()).nextInt(10000) != 1) {
-			for (int i = 0; i < (new Random()).nextInt(6); i++) {
+			for (int i = 1; i < (new Random()).nextInt(6); i++) {
 				Entity spider = new EntitySpiderling(world);
 				spider.setLocationAndAngles(par2 + i, par3 + i,
 						par4 + i, spider.rotationYaw, spider.rotationPitch);
@@ -75,7 +76,8 @@ public class BlockCrawlerEgg extends BlockDragonEgg
 	}
 	
 	@Override
-	public void onBlockClicked(World par1World, int par2, int par3, int par4,
+	public void onBlockClicked(World par1World, int par2, int par3,
+			int par4,
 			EntityPlayer par5EntityPlayer) {
 	}
 }

@@ -1,56 +1,58 @@
-==Version 2.5==
+==Version 2.5.1==
 
-* Swamp Clay and Better Grass break faster with a shovel.
-* Added Shadow Skeleton mob.
-    * Now renders with bows.
-    * Much taller than the Player.
-    * Drops Shadow Bone item, currently no use yet.
-        * Will be used in the future to tame Shadow Wolves.
-    * Faster than regular Skeletons and do not burn in daylight.
-* Hostile mobs from this mod spawn less.
-* Scorpions no longer poison the Player when near them; the poison now works exactly the same as Cave Spiders.
-* Increased the size of Scorpions by 0.2F - this makes them slightly easier to fight.
-* Iron Stairs have been added.
-    * Can be crafted using iron blocks, not ingots.
-* Hot Springs now spawn in Bad Lands and more often in Deserts.
-* Miner's Land now spawns all vanilla MC ores as well as ores from this mod.
-* Bonemeal can now be used on Acacia Trees to grow them.
-* Lilac now spawns in Forest biomes.
-* Crawler hit box has been expanded.
-* Ducks now lay duck eggs instead of chicken eggs.
-    * Can be thrown like a chicken egg; has a chance to spawn a baby duck
-    * Changed icon of duck egg to have its own texture.
-    * Can be cooked into fried eggs, just like chicken eggs.
-    * Unlike chicken eggs, throwing duck eggs causes minimal damage to the assaulted.
-* Ducks can now breathe underwater.
-* Rextured slime block with actual Slime mob texture.
-* Sea Lamps and Shinestone Blocks now much easier to break.
-* Marble now requires an iron pickaxe to mine (this is not true for Black Marble, since it takes the original to craft it).
-* Added Mummies.
-    * Only spawn in Deserts and Desert-like biomes.
-    * Has a chance to drop paper.
-    * Hits hard.
-    * Movement speed is exactly the same as the Shadow Skeleton.
-    * Based off of Zombies, but much more health.
-    * Have their own set of sounds.
-* Redrock Cobble Walls can now be crafted using Redrock Cobble blocks.
-* Heart Flowers now have a chance to drop a Healing Heart item.
-* Underground Bases made of Redrock Cobble now generate in Redrock Mountain biomes.
-    * Has a chance to spawn 16 treasure chests - type of chest is randomly selected each time, and each one has an individual percentage.
-    * Beds and crafting tables should spawn here.
-    * Shinestone will also generate.
-    * Damaged Anvils generate as well.
-* Fish now render in random, varying sizes.
-* Added Fish Flakes item.
-    * When fed to a fish, increases its size by a float value of 0.1F and max health by a float value of 2.0F.
-* Added Fish Food can.
-    * Works exactly like the flakes, but has 10 uses.
-* Sharks will now attack fish on sight.
-* Added Brimstone.
-    * Generates in the Nether - burns forever like Netherrack.
-* Smelting Fueltonium Ore now yields 1 Fuelonite as opposed to two.
-* Added a new Biome called Mushroom Forest.
-    * Big and small mushrooms generate here.
-    * Mooshrooms and Pigshrooms spawn here.
-    * Lots of flowers, tree, clay, grass and sugar cane.
-    * Witches and Shadow Skeletons spawn here.
+* Long / short string length glitch fixed with fish size.
+* Crawler doesn't heal as much when spawning spiders and egg sacs.
+* Zombie Hogmen now render with swords.
+* Mushroom Forest now renders with Better Grass instead of regular grass.
+* Crawler hitbox expanded further.
+* Certain types of flowers can now be crafted into dye 
+    * (aster = lapis, cosmos = pink, crocosmia = orange, lilac = purple).
+* Ender Berries can now grow on tilled land.
+* 9 Regular grass blocks now make 1 Better Grass block.
+* 1 Better Grass block now makes 9 Regular grass blocks.
+* Increased spawn rate and spawn amount of Super Charged Coal.
+* Added Ender Shard Item.
+    * 8 Ender Shards make 1 Ender Pearl.
+    * 1 Ender Pearl makes 8 Ender Shards.
+    * Dropped from Ender Shard Ore.
+    * Very rare.
+* Added Ender Shard Ore.
+    * Drops Ender Shard Item.
+    * Generates between layers 9 and 42.
+    * Has a 10% chance of spawning.
+    * Will eventually have an End and Nether Variant.
+    * Requires an Amaranth Pickaxe to mine.
+* Added the ComputerCraft API.
+* Added the MineFactory Reloaded API.
+* Soul Sand can now be crafted via a shapeless recipe using dirt and netherrack.
+* Soul Sand can now be cooked into Soul Glass, which cannot be blown up, and can be picked back up upon being broken.
+* Added ModHelper for Thermal Expansion.
+* Added Hell Duck Mob.
+    * Only spawns in the Nether.
+    * Twice the size of a normal duck.
+    * Immune to fire and lava.
+    * Can breathe when in lava.
+    * Is hurt by water.
+    * Ferociously attacks the player amidst its deathly quacks.
+* Scorpions should now be poisonous again - same as Cave Spiders.
+* Altered Spiderlings so that after 1,100 ticks, they have a chance (1/20) to lay another egg, dying when they do so.
+* Hog Zombies now extend Pigmen, as opposed to regular Zombies.
+* AMP Cell can now be turned on and off via redstone signal.
+* Magma Slimeblocks will now generate in the Nether.
+* Scorpions now only spawn in deserts, cold deserts, badlands and grand canyons.
+* Made Redshroom block and stem easier to break.
+* Fueltonium ingots can now be turned into liquid fueltonium using the Magma Crucible in Thermal Expansion.
+    * Liquid now damages Player and other entities.
+    * Has a custom death message.
+* Jellyfish now have a custom death message.
+* Added Shrimp.
+    * Incredibly tiny (for now).
+    * First of many more aquatic mobs and additions to come.
+    * Drops raw shrimp that can be cooked into cooked shrimp.
+    * Raw form of drop can be pulverized into fish food.
+* Mummies will attack Villagers, and upon "converting" a Villager, will turn it into a fellow Mummy.
+    * Unintended feature, but staying.
+* Added fence for each type of wood.
+    * Can be crafted by surrounding a fence with the desired wood planks (reversible).
+* 
+*       

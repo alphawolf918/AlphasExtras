@@ -14,6 +14,7 @@ import alphaitems.mobs.entities.EntityDiamondGolem;
 import alphaitems.mobs.entities.EntityDuck;
 import alphaitems.mobs.entities.EntityEnderSpider;
 import alphaitems.mobs.entities.EntityFish;
+import alphaitems.mobs.entities.EntityHellduck;
 import alphaitems.mobs.entities.EntityHog;
 import alphaitems.mobs.entities.EntityHogZombie;
 import alphaitems.mobs.entities.EntityJellyfish;
@@ -23,6 +24,7 @@ import alphaitems.mobs.entities.EntityPigshroom;
 import alphaitems.mobs.entities.EntityScorpion;
 import alphaitems.mobs.entities.EntityShadowSkeleton;
 import alphaitems.mobs.entities.EntityShark;
+import alphaitems.mobs.entities.EntityShrimp;
 import alphaitems.mobs.entities.EntitySpiderling;
 import alphaitems.mobs.entities.EntityTiger;
 import alphaitems.mobs.entities.boss.EntityCrawler;
@@ -32,6 +34,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class Mobs {
 	
 	static int startEntityId = 300;
+	
+	/**
+	 * This list stores the entities that are to be added to the Dungeon mob
+	 * spawn list.
+	 */
 	public static ArrayList<String> entityList = new ArrayList<String>();
 	
 	public static void init() {
@@ -100,25 +107,10 @@ public class Mobs {
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.scorpion.name", "en_US", "Scorpion");
 		EntityRegistry.addSpawn(EntityScorpion.class, 3, 0, 1,
-				EnumCreatureType.monster, BiomeGenBase.plains,
-				BiomeGenBase.forest, BiomeGenBase.desert,
-				BiomeGenBase.extremeHills, BiomeGenBase.jungle,
-				BiomeGenBase.swampland, BiomeGenBase.taiga,
-				BiomeGenBase.ocean,
-				Biomes.greenMeadow, BiomeGenBase.extremeHills,
-				BiomeGenBase.extremeHillsEdge, BiomeGenBase.desertHills,
-				BiomeGenBase.river, BiomeGenBase.beach,
-				BiomeGenBase.forestHills, BiomeGenBase.frozenOcean,
-				BiomeGenBase.frozenRiver, BiomeGenBase.iceMountains,
-				BiomeGenBase.icePlains, BiomeGenBase.jungleHills,
-				BiomeGenBase.taigaHills, Biomes.greenMeadow,
-				Biomes.rainForest, Biomes.saltLake, Biomes.coldDesert,
-				Biomes.floweryField, Biomes.iceMountains,
-				Biomes.redRockMountains, Biomes.redShroomPlains,
-				Biomes.slimeLands, Biomes.stoneMountains, Biomes.savannah,
-				Biomes.minersLand, Biomes.spongeField, Biomes.coalHills,
-				Biomes.magmaLands, Biomes.mudSwamp, Biomes.grandCanyon,
-				Biomes.savannah, Biomes.slimeLands);
+				EnumCreatureType.monster, BiomeGenBase.desert,
+				BiomeGenBase.desertHills, Biomes.coldDesert,
+				Biomes.grandCanyon,
+				Biomes.badLands);
 		registerEntityEgg(EntityScorpion.class, 0xf5eeb3, 0x8b9900);
 		entityList.add("Scorpion");
 		
@@ -271,7 +263,7 @@ public class Mobs {
 		
 		// Ender Spider
 		EntityRegistry.registerGlobalEntityID(EntityEnderSpider.class,
-				"enderspider", 81);
+				"enderspider", 90);
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.enderspider.name", "en_US", "Ender Spider");
 		EntityRegistry.addSpawn(EntityEnderSpider.class, 4, 1, 4,
@@ -323,9 +315,45 @@ public class Mobs {
 				Biomes.badLands);
 		registerEntityEgg(EntityMummy.class, 0x8b9900, 0xf5eeb3);
 		entityList.add("Mummy");
-	}
-	
-	static {
+		
+		// Hell Duck
+		EntityRegistry
+				.registerGlobalEntityID(EntityHellduck.class, "hellduck",
+						88);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.hellduck.name", "en_US", "Hell Duck");
+		EntityRegistry.addSpawn(EntityHellduck.class, 2, 1, 2,
+				EnumCreatureType.monster, BiomeGenBase.hell);
+		registerEntityEgg(EntityHellduck.class, 0x8b0000, 0x000000);
+		
+		// Shrimp
+		EntityRegistry
+				.registerGlobalEntityID(EntityShrimp.class, "shrimp",
+						91);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.shrimp.name", "en_US", "Shrimp");
+		EntityRegistry.addSpawn(EntityShrimp.class, 2, 1, 2,
+				EnumCreatureType.waterCreature, BiomeGenBase.plains,
+				BiomeGenBase.forest, BiomeGenBase.desert,
+				BiomeGenBase.extremeHills, BiomeGenBase.jungle,
+				BiomeGenBase.swampland, BiomeGenBase.taiga,
+				BiomeGenBase.ocean,
+				Biomes.greenMeadow, BiomeGenBase.extremeHills,
+				BiomeGenBase.extremeHillsEdge, BiomeGenBase.desertHills,
+				BiomeGenBase.river, BiomeGenBase.beach,
+				BiomeGenBase.forestHills, BiomeGenBase.frozenOcean,
+				BiomeGenBase.frozenRiver, BiomeGenBase.iceMountains,
+				BiomeGenBase.icePlains, BiomeGenBase.jungleHills,
+				BiomeGenBase.mushroomIsland,
+				BiomeGenBase.mushroomIslandShore,
+				BiomeGenBase.taigaHills, Biomes.greenMeadow,
+				Biomes.rainForest, Biomes.saltLake, Biomes.coldDesert,
+				Biomes.floweryField, Biomes.iceMountains,
+				Biomes.redRockMountains, Biomes.redShroomPlains,
+				Biomes.slimeLands, Biomes.stoneMountains);
+		registerEntityEgg(EntityShrimp.class, 0xdd00aa, 0xff00aa);
+		
+		// Adds the necessary mobs to the dungeon spawn chance.
 		addSpawners();
 	}
 	

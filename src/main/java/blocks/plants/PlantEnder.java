@@ -3,6 +3,7 @@ package alphaitems.blocks.plants;
 import java.util.ArrayList;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,7 +27,8 @@ public class PlantEnder extends BlockFlower
 		super(par1);
 		this.setTickRandomly(true);
 		float f = 0.5F;
-		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
+		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F,
+				0.5F + f);
 		this.setCreativeTab((CreativeTabs) null);
 		this.setUnlocalizedName("enderplant");
 		this.setTextureName("awei:ender_plant");
@@ -42,7 +44,8 @@ public class PlantEnder extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int par1)
 	{
-		return par1 == Blocks.enderDirt.blockID;
+		return par1 == Blocks.enderDirt.blockID
+				|| par1 == Block.tilledField.blockID;
 	}
 	
 	/**
@@ -66,7 +69,8 @@ public class PlantEnder extends BlockFlower
 				{
 					++l;
 					par1World
-							.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+							.setBlockMetadataWithNotify(par2, par3, par4,
+									l, 2);
 				}
 			}
 		}
@@ -94,7 +98,8 @@ public class PlantEnder extends BlockFlower
 	 * opposing, and by adding growth for every crop next to this one (and for
 	 * crop below this one). Args: x, y, z
 	 */
-	private float getGrowthRate(World par1World, int par2, int par3, int par4)
+	private float getGrowthRate(World par1World, int par2, int par3,
+			int par4)
 	{
 		float f = 1.0F;
 		int l = par1World.getBlockId(par2, par3, par4 - 1);
@@ -123,7 +128,8 @@ public class PlantEnder extends BlockFlower
 				{
 					f1 = 1.0F;
 					
-					if (blocksList[j3].isFertile(par1World, l2, par3 - 1, i3))
+					if (blocksList[j3].isFertile(par1World, l2, par3 - 1,
+							i3))
 					{
 						f1 = 3.0F;
 					}
@@ -191,7 +197,8 @@ public class PlantEnder extends BlockFlower
 	 * items
 	 */
 	@Override
-	public void dropBlockAsItemWithChance(World par1World, int par2, int par3,
+	public void dropBlockAsItemWithChance(World par1World, int par2,
+			int par3,
 			int par4, int par5, float par6, int par7)
 	{
 		super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5,

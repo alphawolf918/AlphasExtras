@@ -37,8 +37,8 @@ public class MushroomForest extends BiomeGenBase {
 		this.theBiomeDecorator.bigMushroomsPerChunk = 80;
 		this.theBiomeDecorator.clayPerChunk = 2;
 		this.theBiomeDecorator.generateLakes = true;
-		this.topBlock = (byte) Block.grass.blockID;
-		this.fillerBlock = (byte) Blocks.betterGrass.blockID;
+		this.topBlock = (byte) Blocks.betterGrass.blockID;
+		this.fillerBlock = (byte) Block.dirt.blockID;
 	}
 	
 	@Override

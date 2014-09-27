@@ -6,6 +6,7 @@ import alphaitems.creativetabs.ModTabs;
 import alphaitems.events.Events;
 import alphaitems.handlers.Handlers;
 import alphaitems.items.Items;
+import alphaitems.lib.DSource;
 import alphaitems.lib.ModInfo;
 import alphaitems.lib.OreDict;
 import alphaitems.lib.Recipes;
@@ -14,6 +15,7 @@ import alphaitems.proxies.Proxies;
 import alphaitems.treasures.Treasures;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -21,13 +23,15 @@ import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION)
 @NetworkMod(channels = { ModInfo.CHANNEL }, clientSideRequired = true,
-		serverSideRequired = true)
+		serverSideRequired = false)
 public class AlphaItemsMod {
 	
+	@Instance(ModInfo.ID)
 	public static AlphaItemsMod INSTANCE;
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
+		DSource.init();
 	}
 	
 	@EventHandler

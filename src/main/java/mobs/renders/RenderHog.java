@@ -27,7 +27,8 @@ public class RenderHog extends RenderLiving {
 	}
 	
 	@Override
-	protected void preRenderCallback(EntityLivingBase par1EntityLivingBase,
+	protected void preRenderCallback(
+			EntityLivingBase par1EntityLivingBase,
 			float par2) {
 		this.scaleHog((EntityHog) par1EntityLivingBase, par2);
 	}

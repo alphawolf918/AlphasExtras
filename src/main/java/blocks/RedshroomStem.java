@@ -3,6 +3,8 @@ package alphaitems.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import alphaitems.creativetabs.ModTabs;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 
 public class RedshroomStem extends Block {
 	
@@ -10,9 +12,10 @@ public class RedshroomStem extends Block {
 		super(par1, Material.coral);
 		this.setCreativeTab(ModTabs.aiTab);
 		this.setUnlocalizedName("redstem");
-		this.setHardness(3F);
+		this.setHardness(1.2F);
 		this.setResistance(0.2F);
 		this.setStepSound(Block.soundPowderFootstep);
 		this.setTextureName("awei:redstem");
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.WOOD);
 	}
 }

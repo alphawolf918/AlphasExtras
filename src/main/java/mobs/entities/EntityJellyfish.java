@@ -4,8 +4,8 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import alphaitems.lib.DSource;
 
 public class EntityJellyfish extends EntitySquid implements IMob, IAnimals {
 	
@@ -15,7 +15,7 @@ public class EntityJellyfish extends EntitySquid implements IMob, IAnimals {
 	
 	@Override
 	public void onCollideWithPlayer(EntityPlayer player) {
-		player.attackEntityFrom(DamageSource.causeMobDamage(this),
+		player.attackEntityFrom(DSource.deathJellyfish,
 				4.0F);
 	}
 }

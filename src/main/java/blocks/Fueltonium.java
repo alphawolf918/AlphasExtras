@@ -4,8 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import alphaitems.creativetabs.ModTabs;
+import alphaitems.lib.EnumToolClass;
+import alphaitems.lib.Methods;
 import alphaitems.lib.ModInfo;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,7 +19,7 @@ public class Fueltonium extends Block {
 		this.setHardness(13.0F);
 		this.setResistance(10.0F);
 		this.setStepSound(Block.soundStoneFootstep);
-		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 4);
+		Methods.ForgeSetToolClass(this, "pickaxe", EnumToolClass.AMARANTH);
 	}
 	
 	@Override

@@ -45,11 +45,16 @@ public class EventManager implements IWorldGenerator {
 	private void generateSurface(World world, Random random, int x, int z) {
 		// Super Charged Coal Ore
 		this.addOreSpawn(Blocks.spcOre, world, random, x, z, 16, 16,
-				2 + random.nextInt(8), 10, 2, 12);
+				4 + random.nextInt(10), 20, 4, 22);
 		
 		// Amaranth Ore
 		this.addOreSpawn(Blocks.amaranthOre, world, random, x, z, 16, 16,
 				1 + random.nextInt(4), 15, 2, 28);
+		
+		// Shard Ore
+		this.addOreSpawn(Blocks.enderShardOre, world, random, x, z, 16,
+				16,
+				1 + random.nextInt(1), 10, 9, 42);
 		
 		// Fine Marble
 		this.addOreSpawn(Blocks.marbleBlock, world, random, x, z, 16, 16,
@@ -196,7 +201,7 @@ public class EventManager implements IWorldGenerator {
 		}
 		
 		if (currentBiome.equals(Biomes.redRockMountains)) {
-			this.spawnStructure(5, 50, world, random, x,
+			this.spawnStructure(5, 25, world, random, x,
 					(y - random.nextInt(20)), z,
 					new WorldGenUndergroundBase());
 		}
@@ -259,6 +264,11 @@ public class EventManager implements IWorldGenerator {
 		
 		// Nether Fueltonium Ore
 		(new WorldGenNetherMinable(Blocks.fnOre.blockID, 2, 4))
+				.generate(
+						world, random, Xcoord, Ycoord, Zcoord);
+		
+		// Magma Slime
+		(new WorldGenNetherMinable(Blocks.magmaSlime.blockID, 2, 4))
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
