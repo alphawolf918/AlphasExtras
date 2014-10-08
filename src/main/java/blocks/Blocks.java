@@ -36,6 +36,19 @@ import alphaitems.blocks.plants.trees.acacia.AcaciaLeaves;
 import alphaitems.blocks.plants.trees.acacia.AcaciaLog;
 import alphaitems.blocks.plants.trees.acacia.AcaciaPlanks;
 import alphaitems.blocks.plants.trees.acacia.AcaciaSapling;
+import alphaitems.blocks.portalblocks.VenusPortal;
+import alphaitems.blocks.venus.VenusSand;
+import alphaitems.blocks.venus.VenusStone;
+import alphaitems.blocks.venus.ores.VenusAmaranthOre;
+import alphaitems.blocks.venus.ores.VenusCoalOre;
+import alphaitems.blocks.venus.ores.VenusDiamondOre;
+import alphaitems.blocks.venus.ores.VenusEmeraldOre;
+import alphaitems.blocks.venus.ores.VenusEnderShardOre;
+import alphaitems.blocks.venus.ores.VenusFueltoniumOre;
+import alphaitems.blocks.venus.ores.VenusGoldOre;
+import alphaitems.blocks.venus.ores.VenusIronOre;
+import alphaitems.blocks.venus.ores.VenusRedstoneOre;
+import alphaitems.blocks.venus.ores.VenusSPCOre;
 import alphaitems.lib.Ids;
 import alphaitems.lib.State;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -277,6 +290,31 @@ public class Blocks {
 	public static final Block ampCellOn = new AMPCell(Ids.ampCellOnID,
 			State.ON, "on");
 	
+	public static final Block venusRock = new VenusStone(Ids.venusRockID);
+	public static final Block venusSand = new VenusSand(Ids.venusSandID);
+	public static final Block venusPortal = new VenusPortal(
+			Ids.venusPortalID);
+	public static final Block venusIronOre = new VenusIronOre(
+			Ids.venusIronOreID);
+	public static final Block venusGoldOre = new VenusGoldOre(
+			Ids.venusGoldOreID);
+	public static final Block venusDiamondOre = new VenusDiamondOre(
+			Ids.venusDiamondOreID);
+	public static final Block venusRedstoneOre = new VenusRedstoneOre(
+			Ids.venusRedstoneOreID);
+	public static final Block venusCoalOre = new VenusCoalOre(
+			Ids.venusCoalOreID);
+	public static final Block venusSpcOre = new VenusSPCOre(
+			Ids.venusSpcOreID);
+	public static final Block venusFnOre = new VenusFueltoniumOre(
+			Ids.venusFueltoniumOreID);
+	public static final Block venusEmeraldOre = new VenusEmeraldOre(
+			Ids.venusEmeraldOreID);
+	public static final Block venusAmaranthOre = new VenusAmaranthOre(
+			Ids.venusAmaranthOreID);
+	public static final Block venusShardOre = new VenusEnderShardOre(
+			Ids.venusShardOreID);
+	
 	public static Fluid hotWater = new FluidHotWater("HotWater");
 	public static Block hotWaterBlock = new BlockHotWater(
 			Ids.hotSpringBlockID,
@@ -388,6 +426,19 @@ public class Blocks {
 		addBlock(fenceJungle, "Jungle Fence");
 		addBlock(fenceBirch, "Birch Fence");
 		addBlock(fenceAcacia, "Acacia Fence");
+		addBlock(venusRock, "Solar Rock");
+		addBlock(venusSand, "Solar Dirt");
+		addBlock(venusPortal, "Venus Portal");
+		addBlock(venusIronOre, "Venus Iron Ore");
+		addBlock(venusGoldOre, "Venus Gold Ore");
+		addBlock(venusDiamondOre, "Venus Diamond Ore");
+		addBlock(venusRedstoneOre, "Venus Redstone Ore");
+		addBlock(venusCoalOre, "Venus Coal Ore");
+		addBlock(venusSpcOre, "Venus Super Charged Coal Ore");
+		addBlock(venusFnOre, "Venus Fueltonium Ore");
+		addBlock(venusEmeraldOre, "Venus Emerald Ore");
+		addBlock(venusAmaranthOre, "Venus Amaranth Ore");
+		addBlock(venusShardOre, "Venus Shard Ore");
 	}
 	
 	public static void registerBlock(Block par1Block, String par2Name) {

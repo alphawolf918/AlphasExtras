@@ -12,8 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.event.ForgeSubscribe;
-import alphaitems.api.UseLogTurnerEvent;
 import alphaitems.creativetabs.ModTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -69,36 +67,6 @@ public class AcaciaLog extends BlockLog
 		}
 		
 		return true;
-	}
-	
-	@ForgeSubscribe
-	public void onUseLogTurnerEvent(UseLogTurnerEvent event)
-	{
-		final int id = event.world.getBlockId(event.x, event.y, event.z);
-		
-		if (id == blockID)
-		{
-			final Block wood = Block.wood;
-			event.world.playSoundEffect(event.x + 0.5F, event.y + 0.5F,
-					event.z + 0.5F,
-					wood.stepSound.getStepSound(),
-					(wood.stepSound.getVolume() + 1.0F) / 2.0F,
-					wood.stepSound.getPitch() * 1.55F);
-			
-			if (!event.world.isRemote)
-			{
-				final int metadata = event.world.getBlockMetadata(event.x,
-						event.y, event.z);
-				int orientation = metadata & 12;
-				final int type = metadata & 3;
-				
-				orientation = orientation == 0 ? 4 : orientation == 4 ? 8
-						: 0;
-				event.world.setBlock(event.x, event.y, event.z, blockID,
-						type | orientation, 3);
-			}
-			event.setHandled();
-		}
 	}
 	
 	@Override

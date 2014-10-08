@@ -12,7 +12,6 @@ import net.minecraftforge.common.DungeonHooks;
 import alphaitems.biomes.Biomes;
 import alphaitems.mobs.entities.EntityDiamondGolem;
 import alphaitems.mobs.entities.EntityDuck;
-import alphaitems.mobs.entities.EntityEnderSpider;
 import alphaitems.mobs.entities.EntityFish;
 import alphaitems.mobs.entities.EntityHellduck;
 import alphaitems.mobs.entities.EntityHog;
@@ -24,7 +23,6 @@ import alphaitems.mobs.entities.EntityPigshroom;
 import alphaitems.mobs.entities.EntityScorpion;
 import alphaitems.mobs.entities.EntityShadowSkeleton;
 import alphaitems.mobs.entities.EntityShark;
-import alphaitems.mobs.entities.EntityShrimp;
 import alphaitems.mobs.entities.EntitySpiderling;
 import alphaitems.mobs.entities.EntityTiger;
 import alphaitems.mobs.entities.boss.EntityCrawler;
@@ -261,15 +259,6 @@ public class Mobs {
 				BiomeGenBase.river, Biomes.greenMeadow, Biomes.mudSwamp);
 		registerEntityEgg(EntityDuck.class, 0x008b00, 0x8b2200);
 		
-		// Ender Spider
-		EntityRegistry.registerGlobalEntityID(EntityEnderSpider.class,
-				"enderspider", 90);
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.enderspider.name", "en_US", "Ender Spider");
-		EntityRegistry.addSpawn(EntityEnderSpider.class, 4, 1, 4,
-				EnumCreatureType.monster, BiomeGenBase.sky);
-		registerEntityEgg(EntityEnderSpider.class, 0x444444, 0x22aa22);
-		
 		// Witch (makes it spawn in swamps and its similar biomes)
 		EntityRegistry.addSpawn(EntityWitch.class, 2, 0, 1,
 				EnumCreatureType.monster, BiomeGenBase.swampland,
@@ -322,36 +311,9 @@ public class Mobs {
 						88);
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.hellduck.name", "en_US", "Hell Duck");
-		EntityRegistry.addSpawn(EntityHellduck.class, 2, 1, 2,
+		EntityRegistry.addSpawn(EntityHellduck.class, 10, 1, 2,
 				EnumCreatureType.monster, BiomeGenBase.hell);
 		registerEntityEgg(EntityHellduck.class, 0x8b0000, 0x000000);
-		
-		// Shrimp
-		EntityRegistry
-				.registerGlobalEntityID(EntityShrimp.class, "shrimp",
-						91);
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.shrimp.name", "en_US", "Shrimp");
-		EntityRegistry.addSpawn(EntityShrimp.class, 2, 1, 2,
-				EnumCreatureType.waterCreature, BiomeGenBase.plains,
-				BiomeGenBase.forest, BiomeGenBase.desert,
-				BiomeGenBase.extremeHills, BiomeGenBase.jungle,
-				BiomeGenBase.swampland, BiomeGenBase.taiga,
-				BiomeGenBase.ocean,
-				Biomes.greenMeadow, BiomeGenBase.extremeHills,
-				BiomeGenBase.extremeHillsEdge, BiomeGenBase.desertHills,
-				BiomeGenBase.river, BiomeGenBase.beach,
-				BiomeGenBase.forestHills, BiomeGenBase.frozenOcean,
-				BiomeGenBase.frozenRiver, BiomeGenBase.iceMountains,
-				BiomeGenBase.icePlains, BiomeGenBase.jungleHills,
-				BiomeGenBase.mushroomIsland,
-				BiomeGenBase.mushroomIslandShore,
-				BiomeGenBase.taigaHills, Biomes.greenMeadow,
-				Biomes.rainForest, Biomes.saltLake, Biomes.coldDesert,
-				Biomes.floweryField, Biomes.iceMountains,
-				Biomes.redRockMountains, Biomes.redShroomPlains,
-				Biomes.slimeLands, Biomes.stoneMountains);
-		registerEntityEgg(EntityShrimp.class, 0xdd00aa, 0xff00aa);
 		
 		// Adds the necessary mobs to the dungeon spawn chance.
 		addSpawners();

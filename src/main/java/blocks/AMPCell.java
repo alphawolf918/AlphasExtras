@@ -12,10 +12,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import alphaitems.AlphaItemsMod;
-import alphaitems.api.cofh.block.IBlockInfo;
 import alphaitems.blocks.tileentities.TileEntityAmpCell;
 import alphaitems.creativetabs.ModTabs;
 import alphaitems.lib.State;
+import api.cofh.block.IBlockInfo;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 public class AMPCell extends BlockContainer implements IBlockInfo {

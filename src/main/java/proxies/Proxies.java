@@ -1,7 +1,9 @@
 package alphaitems.proxies;
 
+import alphaitems.AlphaItemsMod;
 import alphaitems.lib.ModInfo;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 public class Proxies {
 	
@@ -13,5 +15,8 @@ public class Proxies {
 	public static void init() {
 		proxy.initRenderers();
 		proxy.initSounds();
+		proxy.registerKeyBindings();
+		NetworkRegistry.instance().registerGuiHandler(
+				AlphaItemsMod.INSTANCE, proxy);
 	}
 }

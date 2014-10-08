@@ -29,6 +29,7 @@ public class Biomes {
 	public static BiomeGenBase mudSwamp = new MudSwamp(102);
 	
 	public static BiomeGenBase mushroomForest = new MushroomForest(103);
+	public static BiomeGenBase venus = new BiomeVenus(104);
 	
 	public static void init() {
 		GameRegistry.addBiome(saltLake);

@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import alphaitems.biomes.Biomes;
 import alphaitems.blocks.Blocks;
+import alphaitems.dimensions.venus.WorldGenMinableVenus;
 import alphaitems.worldgen.WorldGenAcaciaTree;
 import alphaitems.worldgen.WorldGenBerries;
 import alphaitems.worldgen.WorldGenEnderMinable;
@@ -20,7 +21,6 @@ import alphaitems.worldgen.WorldGenEnderPlant;
 import alphaitems.worldgen.WorldGenNetherMinable;
 import alphaitems.worldgen.WorldGenSeaLamp;
 import alphaitems.worldgen.WorldGenSwampClay;
-import alphaitems.worldgen.WorldGenUndergroundBase;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class EventManager implements IWorldGenerator {
@@ -39,13 +39,16 @@ public class EventManager implements IWorldGenerator {
 			case 1:
 				generateEnd(world, random, chunkX * 16, chunkZ * 16);
 				break;
+			case -21:
+				generateVenus(world, random, chunkX, chunkZ);
+				break;
 		}
 	}
 	
 	private void generateSurface(World world, Random random, int x, int z) {
 		// Super Charged Coal Ore
 		this.addOreSpawn(Blocks.spcOre, world, random, x, z, 16, 16,
-				4 + random.nextInt(10), 20, 4, 22);
+				4 + random.nextInt(10), 15, 4, 22);
 		
 		// Amaranth Ore
 		this.addOreSpawn(Blocks.amaranthOre, world, random, x, z, 16, 16,
@@ -54,7 +57,7 @@ public class EventManager implements IWorldGenerator {
 		// Shard Ore
 		this.addOreSpawn(Blocks.enderShardOre, world, random, x, z, 16,
 				16,
-				1 + random.nextInt(1), 10, 9, 42);
+				2 + random.nextInt(2), 15, 6, 48);
 		
 		// Fine Marble
 		this.addOreSpawn(Blocks.marbleBlock, world, random, x, z, 16, 16,
@@ -67,7 +70,7 @@ public class EventManager implements IWorldGenerator {
 		
 		// Fueltonium
 		this.addOreSpawn(Blocks.fueltonium, world, random, x, z, 16, 16,
-				1 + random.nextInt(3), 2, 2, 10);
+				4 + random.nextInt(4), 10, 2, 10);
 		
 		// Heart Block
 		this.addOreSpawn(Blocks.heartBlock, world, random, x, z, 16, 16,
@@ -200,12 +203,6 @@ public class EventManager implements IWorldGenerator {
 					new WorldGenLakes(Block.ice.blockID));
 		}
 		
-		if (currentBiome.equals(Biomes.redRockMountains)) {
-			this.spawnStructure(5, 25, world, random, x,
-					(y - random.nextInt(20)), z,
-					new WorldGenUndergroundBase());
-		}
-		
 		if (currentBiome.equals(Biomes.spongeField)) {
 			this.spawnStructure(14, 15, world, random, x, y, z,
 					new WorldGenFlowers(Blocks.coral.blockID));
@@ -288,6 +285,57 @@ public class EventManager implements IWorldGenerator {
 						world, random, Xcoord, Ycoord, Zcoord);
 	}
 	
+	private void generateVenus(World world, Random random, int x, int z) {
+		// Venus Rock
+		this.addVenusOreSpawn(Blocks.venusRock, world, random, x, z,
+				16, 16,
+				4 + random.nextInt(58), 86, 2, 56);
+		
+		// Iron Ore
+		this.addVenusOreSpawn(Blocks.venusIronOre, world, random, x, z,
+				16, 16,
+				4 + random.nextInt(4), 10, 1, 50);
+		
+		// Gold Ore
+		this.addVenusOreSpawn(Blocks.venusGoldOre, world, random, x, z,
+				16, 16,
+				4 + random.nextInt(4), 5, 1, 35);
+		
+		// Diamond Ore
+		this.addVenusOreSpawn(Blocks.venusDiamondOre, world, random, x, z,
+				16, 16,
+				1 + random.nextInt(4), 2, 4, 16);
+		
+		// Emerald Ore
+		this.addVenusOreSpawn(Blocks.venusEmeraldOre, world, random, x, z,
+				16, 16,
+				1 + random.nextInt(1), 2, 2, 12);
+		
+		// Redstone Ore
+		this.addVenusOreSpawn(Blocks.venusRedstoneOre, world, random, x,
+				z,
+				16, 16,
+				1 + random.nextInt(4), 4, 4, 36);
+		
+		// Coal Ore
+		this.addVenusOreSpawn(Blocks.venusCoalOre, world, random, x,
+				z,
+				16, 16,
+				4 + random.nextInt(10), 35, 4, 48);
+		
+		// Super Coal Ore
+		this.addVenusOreSpawn(Blocks.venusSpcOre, world, random, x,
+				z,
+				16, 16,
+				2 + random.nextInt(8), 15, 4, 48);
+		
+		// Fueltonium Ore
+		this.addVenusOreSpawn(Blocks.venusFnOre, world, random, x,
+				z,
+				16, 16,
+				1 + random.nextInt(4), 10, 4, 24);
+	}
+	
 	/**
 	 * Spawns a structure in the world
 	 * 
@@ -297,6 +345,47 @@ public class EventManager implements IWorldGenerator {
 			Random random, int x, int y, int z, WorldGenerator wg) {
 		if (random.nextInt(maxChance) == minChance) {
 			wg.generate(world, random, x, y, z);
+		}
+	}
+	
+	public void addVenusOreSpawn(Block block, World world, Random random,
+			int blockXPos, int blockZPos, int maxX, int maxZ,
+			int maxVeinSize,
+			int chancesToSpawn, int minY, int maxY) {
+		int maxPossY = minY + (maxY - 1);
+		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
+		assert maxX > 0 && maxX <= 16 : "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
+		assert minY > 0 : "addOreSpawn: The Minimum Y must be greater than 0";
+		assert maxY < 256 && maxY > 0 : "addOreSpawn: The Maximum Y must be less than 256 but greater than 0";
+		assert maxZ > 0 && maxZ <= 16 : "addOreSpawn: The Maximum Z must be greater than 0 and less than 16";
+		
+		// Venus Rock
+		int diffBtwnMinMaxY = maxY - minY;
+		for (int x = 0; x < chancesToSpawn; x++) {
+			int posX = blockXPos + random.nextInt(maxX);
+			int posY = minY + random.nextInt(diffBtwnMinMaxY);
+			int posZ = blockZPos + random.nextInt(maxZ);
+			(new WorldGenMinable(block.blockID, maxVeinSize)).generate(
+					world, random, posX, posY, posZ);
+		}
+		
+		for (int x = 0; x < chancesToSpawn; x++) {
+			int posX = blockXPos + random.nextInt(maxX);
+			int posY = minY + random.nextInt(diffBtwnMinMaxY);
+			int posZ = blockZPos + random.nextInt(maxZ);
+			(new WorldGenMinableVenus(block.blockID, maxVeinSize,
+					Blocks.venusRock.blockID))
+					.generate(
+							world, random, posX, posY, posZ);
+		}
+		
+		for (int x = 0; x < chancesToSpawn; x++) {
+			int posX = blockXPos + random.nextInt(maxX);
+			int posY = minY + random.nextInt(diffBtwnMinMaxY);
+			int posZ = blockZPos + random.nextInt(maxZ);
+			(new WorldGenMinableVenus(block.blockID, maxVeinSize))
+					.generate(
+							world, random, posX, posY, posZ);
 		}
 	}
 	

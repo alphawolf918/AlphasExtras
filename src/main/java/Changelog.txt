@@ -1,58 +1,9 @@
-==Version 2.5.1==
+==Version 2.6==
 
-* Long / short string length glitch fixed with fish size.
-* Crawler doesn't heal as much when spawning spiders and egg sacs.
-* Zombie Hogmen now render with swords.
-* Mushroom Forest now renders with Better Grass instead of regular grass.
-* Crawler hitbox expanded further.
-* Certain types of flowers can now be crafted into dye 
-    * (aster = lapis, cosmos = pink, crocosmia = orange, lilac = purple).
-* Ender Berries can now grow on tilled land.
-* 9 Regular grass blocks now make 1 Better Grass block.
-* 1 Better Grass block now makes 9 Regular grass blocks.
-* Increased spawn rate and spawn amount of Super Charged Coal.
-* Added Ender Shard Item.
-    * 8 Ender Shards make 1 Ender Pearl.
-    * 1 Ender Pearl makes 8 Ender Shards.
-    * Dropped from Ender Shard Ore.
-    * Very rare.
-* Added Ender Shard Ore.
-    * Drops Ender Shard Item.
-    * Generates between layers 9 and 42.
-    * Has a 10% chance of spawning.
-    * Will eventually have an End and Nether Variant.
-    * Requires an Amaranth Pickaxe to mine.
-* Added the ComputerCraft API.
-* Added the MineFactory Reloaded API.
-* Soul Sand can now be crafted via a shapeless recipe using dirt and netherrack.
-* Soul Sand can now be cooked into Soul Glass, which cannot be blown up, and can be picked back up upon being broken.
-* Added ModHelper for Thermal Expansion.
-* Added Hell Duck Mob.
-    * Only spawns in the Nether.
-    * Twice the size of a normal duck.
-    * Immune to fire and lava.
-    * Can breathe when in lava.
-    * Is hurt by water.
-    * Ferociously attacks the player amidst its deathly quacks.
-* Scorpions should now be poisonous again - same as Cave Spiders.
-* Altered Spiderlings so that after 1,100 ticks, they have a chance (1/20) to lay another egg, dying when they do so.
-* Hog Zombies now extend Pigmen, as opposed to regular Zombies.
-* AMP Cell can now be turned on and off via redstone signal.
-* Magma Slimeblocks will now generate in the Nether.
-* Scorpions now only spawn in deserts, cold deserts, badlands and grand canyons.
-* Made Redshroom block and stem easier to break.
-* Fueltonium ingots can now be turned into liquid fueltonium using the Magma Crucible in Thermal Expansion.
-    * Liquid now damages Player and other entities.
-    * Has a custom death message.
-* Jellyfish now have a custom death message.
-* Added Shrimp.
-    * Incredibly tiny (for now).
-    * First of many more aquatic mobs and additions to come.
-    * Drops raw shrimp that can be cooked into cooked shrimp.
-    * Raw form of drop can be pulverized into fish food.
-* Mummies will attack Villagers, and upon "converting" a Villager, will turn it into a fellow Mummy.
-    * Unintended feature, but staying.
-* Added fence for each type of wood.
-    * Can be crafted by surrounding a fence with the desired wood planks (reversible).
+* Ender Shard spawns more often.
+* Added the Venus dimension / planet
+* Added Solar Rock and Solar Sand.
+* Removed WorldGenUndergroundBase.
+* Added Iron, Gold, Redstone, Coal, Emerald, Diamond, Amaranth, Fueltonium, Ender Shard and Super Charged Coal Ores to Venus.
+    * All of the above can be pulverized and/or smelted.
 * 
-*       

@@ -8,7 +8,6 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 public class ThermalExpansionHelper {
 	
 	public ThermalExpansionHelper() {
-		
 	}
 	
 	public static void addCrucibleRecipe(int energy, ItemStack input,

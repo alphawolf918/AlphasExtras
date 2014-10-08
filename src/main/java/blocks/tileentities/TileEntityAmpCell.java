@@ -1,17 +1,15 @@
 package alphaitems.blocks.tileentities;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.ForgeDirection;
-import alphaitems.api.cofh.energy.EnergyStorage;
-import alphaitems.api.cofh.energy.IEnergyStorage;
-import alphaitems.api.cofh.energy.TileEnergyHandler;
-import alphaitems.api.cofh.transport.IItemConduitConnection;
+import api.cofh.energy.EnergyStorage;
+import api.cofh.energy.IEnergyStorage;
+import api.cofh.energy.TileEnergyHandler;
+import api.cofh.transport.IItemConduitConnection;
 
 public class TileEntityAmpCell extends TileEnergyHandler implements
-		IEnergyStorage, ISidedInventory, IItemConduitConnection
+		IEnergyStorage, IItemConduitConnection
 
 {
 	
@@ -153,102 +151,11 @@ public class TileEntityAmpCell extends TileEnergyHandler implements
 	}
 	
 	@Override
-	public int getSizeInventory() {
-		return 0;
-	}
-	
-	@Override
-	public ItemStack getStackInSlot(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public ItemStack decrStackSize(int i, int j) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public void setInventorySlotContents(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public String getInvName() {
-		return this.isInvNameLocalized() ? this.field_94130_e
-				: "container.ampcell";
-	}
-	
-	@Override
-	public boolean isInvNameLocalized() {
-		return this.field_94130_e != null
-				&& this.field_94130_e.length() > 0;
-	}
-	
-	@Override
-	public int getInventoryStackLimit() {
-		return 64;
-	}
-	
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord,
-				this.zCoord) != this ? false : entityplayer
-				.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D,
-						this.zCoord + 0.5D) <= 64.0D;
-	}
-	
-	@Override
-	public void openChest() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public void setGuiDisplayName(String par1Str)
-	{
-		this.field_94130_e = par1Str;
-	}
-	
-	@Override
-	public void closeChest() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
-	public int[] getAccessibleSlotsFromSide(int var1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public boolean canInsertItem(int i, ItemStack itemstack, int j) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
-	public boolean canExtractItem(int i, ItemStack itemstack, int j) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
 	public boolean canConduitConnect(ForgeDirection from) {
+		return true;
+	}
+	
+	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return true;
 	}
 }

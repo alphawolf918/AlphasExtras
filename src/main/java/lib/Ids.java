@@ -29,8 +29,8 @@ public class Ids {
 	public static final int superCoalBlockID = 233;
 	public static final int superCoalNetherOreID = 234;
 	
-	public static final int cbBlockBlueID = 235;
-	public static final int cbBlockRedID = 236;
+	public static final int cbBlockBlueID = 2637;
+	public static final int cbBlockRedID = 2638;
 	public static final int cbBlockGreenID = 237;
 	public static final int cbBlockYellowID = 238;
 	public static final int cbBlockPinkID = 239;
@@ -136,6 +136,19 @@ public class Ids {
 	public static final int fenceJungleID = 2634;
 	public static final int fenceBirchID = 2635;
 	public static final int fenceAcaciaID = 2636;
+	public static final int venusRockID = 235;
+	public static final int venusSandID = 236;
+	public static final int venusPortalID = 2639;
+	public static final int venusIronOreID = 2640;
+	public static final int venusGoldOreID = 2641;
+	public static final int venusDiamondOreID = 2642;
+	public static final int venusEmeraldOreID = 2643;
+	public static final int venusRedstoneOreID = 2644;
+	public static final int venusAmaranthOreID = 2645;
+	public static final int venusSpcOreID = 2646;
+	public static final int venusFueltoniumOreID = 2647;
+	public static final int venusCoalOreID = 2648;
+	public static final int venusShardOreID = 2649;
 	
 	public static final int fuelIngotID = 16109;
 	public static final int friedEggID = 16110;
