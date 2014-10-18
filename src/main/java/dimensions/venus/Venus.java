@@ -1,11 +1,11 @@
 package alphaitems.dimensions.venus;
 
-import alphaitems.dimensions.providers.WorldProviderVenus;
 import net.minecraftforge.common.DimensionManager;
+import alphaitems.dimensions.providers.WorldProviderVenus;
 
 public class Venus {
 	
-	public static int dimId = -21;
+	public static int dimId = DimensionManager.getNextFreeDimId();
 	
 	public static void init() {
 		DimensionManager.registerProviderType(dimId,

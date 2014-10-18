@@ -83,9 +83,10 @@ public final class Treasures {
 		chestTypes.add(ChestGenHooks.STRONGHOLD_CROSSING);
 		chestTypes.add(ChestGenHooks.STRONGHOLD_LIBRARY);
 		chestTypes.add(ChestGenHooks.VILLAGE_BLACKSMITH);
+		chestTypes.add(AEChestGenHooks.CRYSTAL_TOWER);
 	}
 	
 	public static String pickChestType() {
-		return chestTypes.get((int) (Math.random() * chestTypes.size()));
+		return chestTypes.get((new Random()).nextInt(chestTypes.size()));
 	}
 }

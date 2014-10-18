@@ -10,12 +10,11 @@ public class BiomeVenus extends BiomeGenBase {
 		this.setBiomeName("Venus");
 		this.setColor(Biomes.biomeColor);
 		this.setMinMaxHeight(0.1F, 2.0F);
-		this.temperature = 8F;
+		this.temperature = 7F;
 		this.spawnableCreatureList.clear();
-		this.spawnableWaterCreatureList.clear();
 		this.spawnableCaveCreatureList.clear();
-		this.spawnableMonsterList.clear();
-		this.waterColorMultiplier = 0xff8011;
+		this.waterColorMultiplier = 0xff8100;
+		this.theBiomeDecorator.treesPerChunk = 20;
 		this.topBlock = (byte) Blocks.venusSand.blockID;
 		this.fillerBlock = (byte) Blocks.venusRock.blockID;
 	}

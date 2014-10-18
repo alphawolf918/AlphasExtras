@@ -6,7 +6,7 @@ import alphaitems.blocks.venus.BlockVenusBase;
 public class VenusDiamondOre extends BlockVenusBase {
 	public VenusDiamondOre(int par1) {
 		super(par1, Material.rock);
-		this.setUnlocalizedName("venusDiamondOre");
+		this.setUnlocalizedName("venusdiamondore");
 		this.setTextureName("awei:venusdiamondore");
 		this.setBlockBreakXp(86);
 	}

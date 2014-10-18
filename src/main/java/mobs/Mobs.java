@@ -25,6 +25,7 @@ import alphaitems.mobs.entities.EntityShadowSkeleton;
 import alphaitems.mobs.entities.EntityShark;
 import alphaitems.mobs.entities.EntitySpiderling;
 import alphaitems.mobs.entities.EntityTiger;
+import alphaitems.mobs.entities.EntityWanderer;
 import alphaitems.mobs.entities.boss.EntityCrawler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -311,12 +312,18 @@ public class Mobs {
 						88);
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.hellduck.name", "en_US", "Hell Duck");
-		EntityRegistry.addSpawn(EntityHellduck.class, 10, 1, 2,
+		EntityRegistry.addSpawn(EntityHellduck.class, 25, 2, 4,
 				EnumCreatureType.monster, BiomeGenBase.hell);
 		registerEntityEgg(EntityHellduck.class, 0x8b0000, 0x000000);
 		
-		// Adds the necessary mobs to the dungeon spawn chance.
-		addSpawners();
+		// Wanderer
+		EntityRegistry.registerGlobalEntityID(EntityWanderer.class,
+				"wanderer", 89);
+		EntityRegistry.addSpawn(EntityWanderer.class, 1, 0, 1,
+				EnumCreatureType.monster, Biomes.venus);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.wanderer.name", "en_US", "Wanderer");
+		registerEntityEgg(EntityWanderer.class, 0x00dd00, 0x8b21de);
 	}
 	
 	/**

@@ -2,7 +2,6 @@ package alphaitems;
 
 import alphaitems.biomes.Biomes;
 import alphaitems.blocks.Blocks;
-import alphaitems.blocks.tileentities.Tiles;
 import alphaitems.creativetabs.ModTabs;
 import alphaitems.dimensions.Dimensions;
 import alphaitems.events.Events;
@@ -45,7 +44,6 @@ public class AlphaItemsMod {
 		Handlers.init();
 		Items.init();
 		Blocks.init();
-		Tiles.init();
 		OreDict.init();
 		Recipes.init();
 		Treasures.init();

@@ -9,7 +9,7 @@ import alphaitems.blocks.venus.BlockVenusBase;
 public class VenusRedstoneOre extends BlockVenusBase {
 	public VenusRedstoneOre(int par1) {
 		super(par1, Material.rock);
-		this.setUnlocalizedName("venusRedstoneOre");
+		this.setUnlocalizedName("venusredstoneore");
 		this.setTextureName("awei:venusredstoneore");
 	}
 	

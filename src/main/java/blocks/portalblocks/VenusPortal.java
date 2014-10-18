@@ -21,6 +21,7 @@ public class VenusPortal extends BlockPortal {
 	public VenusPortal(int par1) {
 		super(par1);
 		this.setTickRandomly(true);
+		this.setUnlocalizedName("venusportal");
 		this.setLightValue(1F);
 	}
 	

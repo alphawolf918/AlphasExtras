@@ -33,13 +33,13 @@ public class Ids {
 	public static final int cbBlockRedID = 2638;
 	public static final int cbBlockGreenID = 237;
 	public static final int cbBlockYellowID = 238;
-	public static final int cbBlockPinkID = 239;
+	public static final int cbBlockPinkID = 2622;
 	public static final int cbBlockCyanID = 240;
 	public static final int cbBlockPurpleID = 2480;
 	public static final int cbBlockWhiteID = 242;
 	public static final int cbBlockBlackID = 3499;
-	public static final int cbBlockLimeID = 244;
-	public static final int cbBlockOrangeID = 245;
+	public static final int cbBlockLimeID = 2651;
+	public static final int cbBlockOrangeID = 2652;
 	public static final int cbBlockLightGrayID = 246;
 	public static final int cbBlockMagentaID = 247;
 	public static final int cbBlockLightBlueID = 248;
@@ -121,7 +121,7 @@ public class Ids {
 	public static final int badStoneID = 252;
 	public static final int canyonRockID = 253;
 	public static final int coralID = 2621;
-	public static final int barrierID = 2622;
+	public static final int barrierID = 239;
 	public static final int acaciaStairsID = 2623;
 	public static final int redRockBrickStairsID = 2624;
 	public static final int redRockWallID = 2625;
@@ -149,6 +149,12 @@ public class Ids {
 	public static final int venusFueltoniumOreID = 2647;
 	public static final int venusCoalOreID = 2648;
 	public static final int venusShardOreID = 2649;
+	public static final int polishedCrystalID = 2650;
+	public static final int crystalID = 244;
+	public static final int creepStoneID = 245;
+	public static final int venusCobbleID = 2653;
+	public static final int venusMossyCobbleID = 2654;
+	public static final int venusRockBrickID = 2655;
 	
 	public static final int fuelIngotID = 16109;
 	public static final int friedEggID = 16110;

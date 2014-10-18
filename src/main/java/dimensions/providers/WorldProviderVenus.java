@@ -3,11 +3,10 @@ package alphaitems.dimensions.providers;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import alphaitems.biomes.Biomes;
 import alphaitems.dimensions.venus.Venus;
+import alphaitems.dimensions.venus.WorldChunkManagerVenus;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,9 +20,40 @@ public class WorldProviderVenus extends WorldProvider {
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new WorldChunkManagerHell(
-				Biomes.venus, 8F, 6.0F);
+		// this.worldChunkMgr = new WorldChunkManagerHell(
+		// Biomes.venus, 8F, 6.0F);
+		this.worldChunkMgr = new WorldChunkManagerVenus(this.getSeed(),
+				terrainType);
 		this.dimensionId = Venus.dimId;
+	}
+	
+	@Override
+	public float getStarBrightness(float par1) {
+		return 4.0F;
+	}
+	
+	protected synchronized String setUserMessage(String par1Str)
+	{
+		return "Loading Venus";
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public float getCloudHeight()
+	{
+		return 128.0F;
+	}
+	
+	@Override
+	protected void generateLightBrightnessTable()
+	{
+		float f = 12.0F;
+		for (int i = 0; i <= 15; i++)
+		{
+			float f1 = 12.0F - i / 15.0F;
+			this.lightBrightnessTable[i] = ((1.0F - f1)
+					/ (f1 * 3.0F + 1.0F) * (1.0F - f) + f);
+		}
 	}
 	
 	public int getSkyColorByTemp(float f) {
@@ -48,7 +78,7 @@ public class WorldProviderVenus extends WorldProvider {
 	
 	@Override
 	public String getSaveFolder() {
-		return "DIM-21";
+		return this.getDimensionName();
 	}
 	
 	@Override

@@ -6,7 +6,7 @@ import alphaitems.blocks.venus.BlockVenusBase;
 public class VenusCoalOre extends BlockVenusBase {
 	public VenusCoalOre(int par1) {
 		super(par1, Material.rock);
-		this.setUnlocalizedName("venusCoalOre");
+		this.setUnlocalizedName("venuscoaloreblock");
 		this.setTextureName("awei:venuscoalore");
 	}
 }

@@ -21,6 +21,7 @@ import alphaitems.mobs.entities.EntityShadowSkeleton;
 import alphaitems.mobs.entities.EntityShark;
 import alphaitems.mobs.entities.EntitySpiderling;
 import alphaitems.mobs.entities.EntityTiger;
+import alphaitems.mobs.entities.EntityWanderer;
 import alphaitems.mobs.entities.boss.EntityCrawler;
 import alphaitems.mobs.entities.projectiles.EntityDuckEgg;
 import alphaitems.mobs.models.ModelCrawler;
@@ -37,6 +38,7 @@ import alphaitems.mobs.models.ModelScorpion;
 import alphaitems.mobs.models.ModelShadowSkeleton;
 import alphaitems.mobs.models.ModelShark;
 import alphaitems.mobs.models.ModelSpiderling;
+import alphaitems.mobs.models.ModelWanderer;
 import alphaitems.mobs.renders.RenderCrawler;
 import alphaitems.mobs.renders.RenderDiamondGolem;
 import alphaitems.mobs.renders.RenderDuck;
@@ -52,6 +54,7 @@ import alphaitems.mobs.renders.RenderShadowSkeleton;
 import alphaitems.mobs.renders.RenderShark;
 import alphaitems.mobs.renders.RenderSpiderling;
 import alphaitems.mobs.renders.RenderTiger;
+import alphaitems.mobs.renders.RenderWanderer;
 import alphaitems.mobs.renders.RenderZombieHogman;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -127,6 +130,10 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(
 				EntityHellduck.class,
 				new RenderHellDuck(new ModelDuck(), 0.5F));
+		
+		RenderingRegistry.registerEntityRenderingHandler(
+				EntityWanderer.class, new RenderWanderer(
+						new ModelWanderer(0.5F), 0.5F));
 	}
 	
 	@Override

@@ -37,6 +37,10 @@ import alphaitems.blocks.plants.trees.acacia.AcaciaLog;
 import alphaitems.blocks.plants.trees.acacia.AcaciaPlanks;
 import alphaitems.blocks.plants.trees.acacia.AcaciaSapling;
 import alphaitems.blocks.portalblocks.VenusPortal;
+import alphaitems.blocks.venus.CreepStone;
+import alphaitems.blocks.venus.VenusBrick;
+import alphaitems.blocks.venus.VenusCobble;
+import alphaitems.blocks.venus.VenusMossyCobble;
 import alphaitems.blocks.venus.VenusSand;
 import alphaitems.blocks.venus.VenusStone;
 import alphaitems.blocks.venus.ores.VenusAmaranthOre;
@@ -285,11 +289,6 @@ public class Blocks {
 			.setStepSound(Block.soundWoodFootstep)
 			.setUnlocalizedName("fenceAcacia");
 	
-	public static final Block ampCellOff = new AMPCell(Ids.ampCellOffID,
-			State.OFF, "off");
-	public static final Block ampCellOn = new AMPCell(Ids.ampCellOnID,
-			State.ON, "on");
-	
 	public static final Block venusRock = new VenusStone(Ids.venusRockID);
 	public static final Block venusSand = new VenusSand(Ids.venusSandID);
 	public static final Block venusPortal = new VenusPortal(
@@ -314,6 +313,23 @@ public class Blocks {
 			Ids.venusAmaranthOreID);
 	public static final Block venusShardOre = new VenusEnderShardOre(
 			Ids.venusShardOreID);
+	
+	public static final Block creepStone = new CreepStone(Ids.creepStoneID);
+	public static final Block venusCobble = new VenusCobble(
+			Ids.venusCobbleID);
+	public static final Block venusMossy = new VenusMossyCobble(
+			Ids.venusMossyCobbleID);
+	public static final Block venusBrick = new VenusBrick(
+			Ids.venusRockBrickID);
+	
+	public static final Block ampCellOn = new AMPCell(Ids.ampCellOnID,
+			State.ON, "on");
+	public static final Block ampCellOff = new AMPCell(Ids.ampCellOffID,
+			State.OFF, "off");
+	
+	public static final Block polishedCrystal = new PolishedCrystal(
+			Ids.polishedCrystalID);
+	public static final Block lostCrystal = new Crystal(Ids.crystalID);
 	
 	public static Fluid hotWater = new FluidHotWater("HotWater");
 	public static Block hotWaterBlock = new BlockHotWater(
@@ -419,7 +435,6 @@ public class Blocks {
 		addBlock(ironStairs, "Iron Stairs");
 		addBlock(weatheredBricks, "Weathered Bricks");
 		addBlock(brimStone, "Brimstone");
-		addBlock(ampCellOff, "Ampstone Cell");
 		addBlock(enderShardOre, "Shard Ore");
 		addBlock(resistanceGlass, "Soul Glass");
 		addBlock(fenceSpruce, "Spruce Fence");
@@ -427,18 +442,25 @@ public class Blocks {
 		addBlock(fenceBirch, "Birch Fence");
 		addBlock(fenceAcacia, "Acacia Fence");
 		addBlock(venusRock, "Solar Rock");
-		addBlock(venusSand, "Solar Dirt");
-		addBlock(venusPortal, "Venus Portal");
-		addBlock(venusIronOre, "Venus Iron Ore");
-		addBlock(venusGoldOre, "Venus Gold Ore");
-		addBlock(venusDiamondOre, "Venus Diamond Ore");
-		addBlock(venusRedstoneOre, "Venus Redstone Ore");
-		addBlock(venusCoalOre, "Venus Coal Ore");
-		addBlock(venusSpcOre, "Venus Super Charged Coal Ore");
-		addBlock(venusFnOre, "Venus Fueltonium Ore");
-		addBlock(venusEmeraldOre, "Venus Emerald Ore");
-		addBlock(venusAmaranthOre, "Venus Amaranth Ore");
-		addBlock(venusShardOre, "Venus Shard Ore");
+		addBlock(venusSand, "Sunstone");
+		addBlock(venusPortal, "Solar Portal");
+		addBlock(venusIronOre, "Solar Iron Ore");
+		addBlock(venusGoldOre, "Solar Gold Ore");
+		addBlock(venusDiamondOre, "Solar Diamond Ore");
+		addBlock(venusRedstoneOre, "Solar Redstone Ore");
+		addBlock(venusCoalOre, "Solar Coal Ore");
+		addBlock(venusSpcOre, "Solar Super Charged Coal Ore");
+		addBlock(venusFnOre, "Solar Fueltonium Ore");
+		addBlock(venusEmeraldOre, "Solar Emerald Ore");
+		addBlock(venusAmaranthOre, "Solar Amaranth Ore");
+		addBlock(venusShardOre, "Solar Shard Ore");
+		addBlock(polishedCrystal, "Polished Crystal");
+		addBlock(lostCrystal, "Crystal");
+		addBlock(creepStone, "Creep Stone");
+		addBlock(venusCobble, "Solar Cobble");
+		addBlock(venusMossy, "Solar Mosscobble");
+		addBlock(venusBrick, "Venus Brick");
+		addBlock(ampCellOff, "AMP Cell");
 	}
 	
 	public static void registerBlock(Block par1Block, String par2Name) {

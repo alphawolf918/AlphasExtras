@@ -8,7 +8,7 @@ public class VenusStone extends Block {
 	public VenusStone(int par1Id) {
 		super(par1Id, Material.rock);
 		this.setCreativeTab(ModTabs.venusTab);
-		this.setUnlocalizedName("venusRock");
+		this.setUnlocalizedName("venusrock");
 		this.setTextureName("awei:venusrock");
 		this.setHardness(1.4F);
 		this.setResistance(6.5F);

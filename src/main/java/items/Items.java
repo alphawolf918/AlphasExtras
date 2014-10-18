@@ -1,5 +1,6 @@
 package alphaitems.items;
 
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemEgg;
@@ -31,6 +32,7 @@ import alphaitems.items.food.CookedShrimp;
 import alphaitems.items.food.EnderBerry;
 import alphaitems.items.food.FriedEggItem;
 import alphaitems.items.food.RawDuckMeat;
+import alphaitems.items.tools.AmaranthAxe;
 import alphaitems.lib.Ids;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -121,6 +123,9 @@ public class Items {
 	public static final Item cookedShrimp = new CookedShrimp(
 			Ids.shrimpCookedID);
 	
+	public static final Item amaranthAxe = new AmaranthAxe(
+			Ids.amaranthAxeID, EnumToolMaterial.EMERALD);
+	
 	public static Item bucketHotWater = new ItemBucket(
 			Ids.hotWaterBucketID,
 			Blocks.hotWaterBlock.blockID).setCreativeTab(ModTabs.aiTab)
@@ -191,6 +196,7 @@ public class Items {
 		addItem(enderShard, "Ender Shard");
 		addItem(rawShrimp, "Raw Shrimp");
 		addItem(cookedShrimp, "Cooked Shrimp");
+		addItem(amaranthAxe, "Amaranth Axe");
 	}
 	
 	public static void addItem(Item item, String name) {

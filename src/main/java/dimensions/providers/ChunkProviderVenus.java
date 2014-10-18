@@ -28,7 +28,6 @@ import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.MapGenScatteredFeature;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
@@ -40,8 +39,12 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import alphaitems.biomes.Biomes;
 import alphaitems.blocks.Blocks;
+import alphaitems.dimensions.venus.gen.WorldGenDungeonsVenus;
 
 public class ChunkProviderVenus implements IChunkProvider {
+	
+	final byte topBlock = (byte) Blocks.venusSand.blockID;
+	final byte fillerBlock = (byte) Blocks.venusRock.blockID;
 	
 	/** RNG. */
 	private final Random rand;
@@ -225,9 +228,10 @@ public class ChunkProviderVenus implements IChunkProvider {
 							
 							for (int k2 = 0; k2 < 4; ++k2) {
 								if ((d16 += d15) > 0.0D) {
-									par3ArrayOfByte[j2 += short1] = (byte) Blocks.venusSand.blockID;
+									par3ArrayOfByte[j2 += short1] = topBlock;
 								} else if (k1 * 8 + l1 < b2) {
-									par3ArrayOfByte[j2 += short1] = (byte) Blocks.venusRock.blockID;
+									par3ArrayOfByte[j2 += short1] = fillerBlock;
+									;
 								} else {
 									par3ArrayOfByte[j2 += short1] = 0;
 								}
@@ -273,27 +277,33 @@ public class ChunkProviderVenus implements IChunkProvider {
 				int i1 = (int) (this.stoneNoise[k + l * 16] / 3.0D + 3.0D + this.rand
 						.nextDouble() * 0.25D);
 				int j1 = -1;
-				byte b1 = (byte) Blocks.venusRock.blockID;
-				byte b2 = (byte) Blocks.venusSand.blockID;
+				byte b1 = topBlock;
+				byte b2 = fillerBlock;
 				
 				for (int k1 = 127; k1 >= 0; --k1) {
 					int l1 = (l * 16 + k) * 128 + k1;
 					
 					if (k1 <= 0 + this.rand.nextInt(5)) {
-						par3ArrayOfByte[l1] = (byte) Block.bedrock.blockID;
+						par3ArrayOfByte[l1] = (byte) Blocks.barrier.blockID;
 					} else {
-						byte b3 = par3ArrayOfByte[l1];
+						byte b3 = fillerBlock;
 						
 						if (b3 == 0) {
 							j1 = -1;
-						} else if (b3 == Block.stone.blockID) {
+						} else if (b3 == fillerBlock
+								|| b3 == Block.stone.blockID
+								|| b3 == Block.gravel.blockID) {
 							if (j1 == -1) {
 								if (i1 <= 0) {
-									b1 = 0;
-									b2 = (byte) Blocks.venusSand.blockID;
+									b1 = topBlock;
+									b2 = fillerBlock;
+									b3 = fillerBlock;
 								} else if (k1 >= b0 - 4 && k1 <= b0 + 1) {
-									b1 = (byte) Blocks.venusSand.blockID;
-									b2 = (byte) Blocks.venusRock.blockID;
+									b1 = topBlock;
+									b2 = fillerBlock;
+									;
+									b3 = fillerBlock;
+									;
 								}
 								
 								if (k1 < b0 && b1 == 0) {
@@ -317,10 +327,14 @@ public class ChunkProviderVenus implements IChunkProvider {
 								
 								if (j1 == 0 && b2 == Block.sand.blockID) {
 									j1 = this.rand.nextInt(4);
-									b2 = (byte) Blocks.venusRock.blockID;
+									b2 = fillerBlock;
+									;
 								}
 							}
 						}
+					}
+					if (b2 == Block.stone.blockID) {
+						b2 = fillerBlock;
 					}
 				}
 			}
@@ -629,7 +643,7 @@ public class ChunkProviderVenus implements IChunkProvider {
 			l1 = k + this.rand.nextInt(16) + 8;
 			i2 = this.rand.nextInt(128);
 			int j2 = l + this.rand.nextInt(16) + 8;
-			(new WorldGenDungeons()).generate(this.worldObj,
+			(new WorldGenDungeonsVenus()).generate(this.worldObj,
 					this.rand,
 					l1,
 					i2, j2);
@@ -690,7 +704,7 @@ public class ChunkProviderVenus implements IChunkProvider {
 				par4);
 		return biomegenbase == null
 				? null
-				: (biomegenbase == Biomes.venus
+				: ((biomegenbase == Biomes.venus || biomegenbase == Biomes.crystalMounds)
 						&& par1EnumCreatureType == EnumCreatureType.monster
 						&& this.scatteredFeatureGenerator.hasStructureAt(
 								par2,

@@ -3,12 +3,13 @@ package alphaitems.blocks.venus;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import alphaitems.creativetabs.ModTabs;
 
 public class BlockVenusBase extends Block {
 	
 	private int blockBreakXP = 66;
-	private String blockTexture = null;
+	private String btext = null;
 	
 	public BlockVenusBase(int par1) {
 		this(par1, Material.rock);
@@ -20,6 +21,7 @@ public class BlockVenusBase extends Block {
 		this.setHardness(1.4F);
 		this.setResistance(4.0F);
 		this.setStepSound(Block.soundStoneFootstep);
+		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 2);
 	}
 	
 	@Override
@@ -37,10 +39,10 @@ public class BlockVenusBase extends Block {
 	}
 	
 	public void setBlockTexture(String str) {
-		this.blockTexture = "awei:" + str;
+		this.btext = "awei:" + str;
 	}
 	
 	public String getBlockTexture() {
-		return this.blockTexture;
+		return this.btext;
 	}
 }

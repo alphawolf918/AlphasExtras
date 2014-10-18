@@ -40,7 +40,7 @@ public class EntityFish extends EntityWaterMob implements IMob, IAnimals {
 	private float randomMotionVecZ;
 	protected Random rand = new Random();
 	protected float minSize = 0.1F;
-	protected float maxSize = 4.0F;
+	protected float maxSize = 5.0F;
 	public EntityAIAvoidEntity ea = new EntityAIAvoidEntity(this,
 			EntityShark.class,
 			8.0F, 0.6D, 0.6D);

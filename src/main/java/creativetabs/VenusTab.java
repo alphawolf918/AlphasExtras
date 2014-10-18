@@ -1,7 +1,7 @@
 package alphaitems.creativetabs;
 
 import net.minecraft.creativetab.CreativeTabs;
-import alphaitems.items.Items;
+import alphaitems.blocks.Blocks;
 
 public class VenusTab extends CreativeTabs {
 	
@@ -11,6 +11,6 @@ public class VenusTab extends CreativeTabs {
 	
 	@Override
 	public int getTabIconItemIndex() {
-		return Items.spcItem.itemID;
+		return Blocks.venusSand.blockID;
 	}
 }

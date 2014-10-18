@@ -1,9 +1,8 @@
-==Version 2.6==
+==Version 2.6.1==
 
-* Ender Shard spawns more often.
-* Added the Venus dimension / planet
-* Added Solar Rock and Solar Sand.
-* Removed WorldGenUndergroundBase.
-* Added Iron, Gold, Redstone, Coal, Emerald, Diamond, Amaranth, Fueltonium, Ender Shard and Super Charged Coal Ores to Venus.
-    * All of the above can be pulverized and/or smelted.
+* Added custom chest type with custom ChestGenHooks class extension.
+* Hostile mobs will now spawn on Venus.
+* Tweaked Wanderers a bit.
+    * Now can have a max health of 40 using NBT.
+* Amaranth Axe has been added.
 * 

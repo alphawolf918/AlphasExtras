@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import alphaitems.AlphaItemsMod;
-import alphaitems.blocks.tileentities.TileEntityAmpCell;
+import alphaitems.blocks.tiles.TileEntityAmpCell;
 import alphaitems.creativetabs.ModTabs;
 import alphaitems.lib.State;
 import api.cofh.block.IBlockInfo;

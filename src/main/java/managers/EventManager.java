@@ -13,14 +13,20 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import alphaitems.biomes.Biomes;
 import alphaitems.blocks.Blocks;
-import alphaitems.dimensions.venus.WorldGenMinableVenus;
+import alphaitems.dimensions.venus.Venus;
+import alphaitems.dimensions.venus.gen.WorldGenMinableVenus;
+import alphaitems.dimensions.venus.gen.structure.WorldGenCrystalTower;
+import alphaitems.lib.Ids;
 import alphaitems.worldgen.WorldGenAcaciaTree;
 import alphaitems.worldgen.WorldGenBerries;
 import alphaitems.worldgen.WorldGenEnderMinable;
 import alphaitems.worldgen.WorldGenEnderPlant;
 import alphaitems.worldgen.WorldGenNetherMinable;
 import alphaitems.worldgen.WorldGenSeaLamp;
+import alphaitems.worldgen.WorldGenShinestone;
 import alphaitems.worldgen.WorldGenSwampClay;
+import alphaitems.worldgen.WorldGenTreasureChest;
+import alphaitems.worldgen.WorldGenVenusTree;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class EventManager implements IWorldGenerator {
@@ -39,9 +45,10 @@ public class EventManager implements IWorldGenerator {
 			case 1:
 				generateEnd(world, random, chunkX * 16, chunkZ * 16);
 				break;
-			case -21:
-				generateVenus(world, random, chunkX, chunkZ);
-				break;
+		}
+		
+		if (world.provider.dimensionId == Venus.dimId) {
+			generateVenus(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
 	
@@ -74,7 +81,7 @@ public class EventManager implements IWorldGenerator {
 		
 		// Heart Block
 		this.addOreSpawn(Blocks.heartBlock, world, random, x, z, 16, 16,
-				1, 9, 2, 20);
+				1 + random.nextInt(1), 15, 2, 20);
 		
 		// Spider Egg
 		this.addOreSpawn(Blocks.crawlerEgg, world, random, x, z, 16, 16,
@@ -289,7 +296,7 @@ public class EventManager implements IWorldGenerator {
 		// Venus Rock
 		this.addVenusOreSpawn(Blocks.venusRock, world, random, x, z,
 				16, 16,
-				4 + random.nextInt(58), 86, 2, 56);
+				10 + random.nextInt(48), 86, 2, 56);
 		
 		// Iron Ore
 		this.addVenusOreSpawn(Blocks.venusIronOre, world, random, x, z,
@@ -309,7 +316,7 @@ public class EventManager implements IWorldGenerator {
 		// Emerald Ore
 		this.addVenusOreSpawn(Blocks.venusEmeraldOre, world, random, x, z,
 				16, 16,
-				1 + random.nextInt(1), 2, 2, 12);
+				1 + random.nextInt(1), 2, 10, 14);
 		
 		// Redstone Ore
 		this.addVenusOreSpawn(Blocks.venusRedstoneOre, world, random, x,
@@ -327,18 +334,72 @@ public class EventManager implements IWorldGenerator {
 		this.addVenusOreSpawn(Blocks.venusSpcOre, world, random, x,
 				z,
 				16, 16,
-				2 + random.nextInt(8), 15, 4, 48);
+				2 + random.nextInt(8), 4, 4, 48);
+		
+		// Shard Ore
+		this.addVenusOreSpawn(Blocks.venusShardOre, world, random, x,
+				z,
+				16, 16,
+				2 + random.nextInt(8), 2, 4, 48);
 		
 		// Fueltonium Ore
 		this.addVenusOreSpawn(Blocks.venusFnOre, world, random, x,
 				z,
 				16, 16,
-				1 + random.nextInt(4), 10, 4, 24);
+				1 + random.nextInt(4), 2, 4, 24);
+		
+		// Better Grass
+		this.addVenusOreSpawn(Blocks.betterGrass, world, random, x,
+				z,
+				16, 16,
+				10 + random.nextInt(14), 20, 62, 68);
+		
+		// Chest Gen
+		if (random.nextInt(10) <= 4) {
+			this.spawnStructure(10, 136, world, random, x,
+					world.getHeightValue(x, z), z,
+					(new WorldGenTreasureChest()));
+		}
+		
+		int y = world.getHeightValue(x, z);
+		
+		// Crystal Tower
+		if (random.nextInt(10) <= 4) {
+			this.spawnStructure(10, 436, world, random, x,
+					y, z,
+					(new WorldGenCrystalTower()));
+		}
+		
+		// Grass Gen
+		this.spawnStructure(5, 6, world, random, x, y, z,
+				new WorldGenLakes(Blocks.betterGrass.blockID));
+		
+		// Tree Gen
+		this.spawnStructure(5, 8, world, random, x, y, z,
+				new WorldGenVenusTree(true, 40));
+		
+		// Shinestone Gen
+		this.spawnStructure(5, 10, world, random, x, y, z,
+				new WorldGenShinestone());
 	}
 	
 	/**
 	 * Spawns a structure in the world
 	 * 
+	 * @author Alpha Wolf
+	 * @param minChance
+	 *            The minimum chance that the structure has to spawn.
+	 * @param maxChance
+	 *            The maximum chance that the structure has to spawn.
+	 * @param world
+	 *            The world for the structure to spawn in.
+	 * @param random
+	 *            Needed for randomization and comparison.
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param wg
+	 *            The structure.
 	 */
 	public static void spawnStructure(int minChance, int maxChance,
 			World world,
@@ -359,7 +420,6 @@ public class EventManager implements IWorldGenerator {
 		assert maxY < 256 && maxY > 0 : "addOreSpawn: The Maximum Y must be less than 256 but greater than 0";
 		assert maxZ > 0 && maxZ <= 16 : "addOreSpawn: The Maximum Z must be greater than 0 and less than 16";
 		
-		// Venus Rock
 		int diffBtwnMinMaxY = maxY - minY;
 		for (int x = 0; x < chancesToSpawn; x++) {
 			int posX = blockXPos + random.nextInt(maxX);
@@ -374,7 +434,7 @@ public class EventManager implements IWorldGenerator {
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
 			(new WorldGenMinableVenus(block.blockID, maxVeinSize,
-					Blocks.venusRock.blockID))
+					Ids.venusRockID))
 					.generate(
 							world, random, posX, posY, posZ);
 		}
