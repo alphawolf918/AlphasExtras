@@ -1,8 +1,6 @@
-==Version 2.6.1==
+==Version 2.6.3==
 
-* Added custom chest type with custom ChestGenHooks class extension.
-* Hostile mobs will now spawn on Venus.
-* Tweaked Wanderers a bit.
-    * Now can have a max health of 40 using NBT.
-* Amaranth Axe has been added.
-* 
+* Fixed Super Charged Coal having "Coal" name
+* Copper ingots now make copper blocks, rather than ores
+* Added ores and registration to ore dictionary.
+* Bronze, Silver, Lead, Tin and Ferrous now generate on Venus

@@ -1,13 +1,13 @@
 package alphaitems.mobs.entities.projectiles;
 
-import alphaitems.mobs.entities.EntityDuck;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityEgg;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import alphaitems.mobs.entities.EntityDuck;
 
-public class EntityDuckEgg extends EntityEgg
+public class EntityDuckEgg extends EntityThrowable
 {
 	public EntityDuckEgg(World par1World)
 	{
@@ -51,12 +51,12 @@ public class EntityDuckEgg extends EntityEgg
 			
 			for (int i = 0; i < b0; ++i)
 			{
-				EntityDuck entitychicken = new EntityDuck(
+				EntityDuck entityduck = new EntityDuck(
 						this.worldObj);
-				entitychicken.setGrowingAge(-24000);
-				entitychicken.setLocationAndAngles(this.posX, this.posY,
+				entityduck.setGrowingAge(-24000);
+				entityduck.setLocationAndAngles(this.posX, this.posY,
 						this.posZ, this.rotationYaw, 0.0F);
-				this.worldObj.spawnEntityInWorld(entitychicken);
+				this.worldObj.spawnEntityInWorld(entityduck);
 			}
 		}
 		

@@ -1,7 +1,10 @@
 package alphaitems.blocks.venus;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import alphaitems.blocks.Blocks;
 import alphaitems.creativetabs.ModTabs;
 
 public class VenusStone extends Block {
@@ -13,5 +16,10 @@ public class VenusStone extends Block {
 		this.setHardness(1.4F);
 		this.setResistance(6.5F);
 		this.setStepSound(Block.soundStoneFootstep);
+	}
+	
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3) {
+		return Blocks.venusCobble.blockID;
 	}
 }

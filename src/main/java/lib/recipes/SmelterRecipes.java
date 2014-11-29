@@ -20,7 +20,7 @@ public class SmelterRecipes {
 		addSmelting(Items.fuelonite, new ItemStack(Items.fuelIngot, 2),
 				20F);
 		addSmelting(Item.egg,
-				new ItemStack(Items.friedEgg, (new Random()).nextInt(2)),
+				new ItemStack(Items.friedEgg, new Random().nextInt(2)),
 				5F);
 		addSmelting(Items.swampClayBall, Item.brick, 5F);
 		addSmelting(Blocks.swampClay, Block.brick, 8F);
@@ -37,7 +37,7 @@ public class SmelterRecipes {
 		addSmelting(Blocks.redCobble, Blocks.redRock, 4F);
 		addSmelting(Items.duckRaw, Items.duckCooked, 4F);
 		addSmelting(Items.duckEgg, new ItemStack(Items.friedEgg,
-				(new Random()).nextInt(2)), 4F);
+				new Random().nextInt(2)), 4F);
 		addSmelting(Block.slowSand, Blocks.resistanceGlass, 8F);
 		addSmelting(Items.rawShrimp, Items.cookedShrimp, 8F);
 		addSmelting(Blocks.venusIronOre, new ItemStack(Block.oreIron, 4),
@@ -62,6 +62,13 @@ public class SmelterRecipes {
 		addSmelting(Blocks.venusShardOre, new ItemStack(
 				Blocks.enderShardOre, 4),
 				15F);
+		addSmelting(Blocks.venusCobble, Blocks.venusRock, 4);
+		addSmelting(Blocks.venusCopperOre, Items.copperIngot, 4);
+		addSmelting(Items.copperDust, Items.copperIngot, 4);
+		addSmelting(Blocks.venusZincOre, Items.zincIngot, 4);
+		addSmelting(Items.zincDust, Items.zincIngot, 4);
+		addSmelting(Blocks.bronzeOre, Items.bronzeIngot, 4);
+		addSmelting(Items.bronzeDust, Items.bronzeIngot, 4);
 	}
 	
 	private static void addSmelting(Block input, Item output, float xp) {

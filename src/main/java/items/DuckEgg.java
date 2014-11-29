@@ -1,13 +1,13 @@
 package alphaitems.items;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemEgg;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import alphaitems.creativetabs.ModTabs;
 import alphaitems.mobs.entities.projectiles.EntityDuckEgg;
 
-public class DuckEgg extends ItemEgg
+public class DuckEgg extends Item
 {
 	public DuckEgg(int par1)
 	{

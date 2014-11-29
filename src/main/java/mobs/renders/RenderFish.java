@@ -32,7 +32,7 @@ public class RenderFish extends RenderLiving {
 	
 	protected void scaleFish(EntityFish par1EntityFish,
 			float par2) {
-		float f6 = 0.9F + par1EntityFish.getFishSize();
+		float f6 = 0.5F;// 0.9F + par1EntityFish.getFishSize();
 		this.shadowSize *= f6;
 		GL11.glScalef(f6, f6, f6);
 	}

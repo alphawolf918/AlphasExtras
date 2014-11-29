@@ -13,6 +13,7 @@ import alphaitems.biomes.Biomes;
 import alphaitems.mobs.entities.EntityDiamondGolem;
 import alphaitems.mobs.entities.EntityDuck;
 import alphaitems.mobs.entities.EntityFish;
+import alphaitems.mobs.entities.EntityFox;
 import alphaitems.mobs.entities.EntityHellduck;
 import alphaitems.mobs.entities.EntityHog;
 import alphaitems.mobs.entities.EntityHogZombie;
@@ -20,9 +21,11 @@ import alphaitems.mobs.entities.EntityJellyfish;
 import alphaitems.mobs.entities.EntityMegaCreeper;
 import alphaitems.mobs.entities.EntityMummy;
 import alphaitems.mobs.entities.EntityPigshroom;
+import alphaitems.mobs.entities.EntityPowerBlaze;
 import alphaitems.mobs.entities.EntityScorpion;
 import alphaitems.mobs.entities.EntityShadowSkeleton;
 import alphaitems.mobs.entities.EntityShark;
+import alphaitems.mobs.entities.EntityShrimp;
 import alphaitems.mobs.entities.EntitySpiderling;
 import alphaitems.mobs.entities.EntityTiger;
 import alphaitems.mobs.entities.EntityWanderer;
@@ -245,6 +248,35 @@ public class Mobs {
 				Biomes.slimeLands, Biomes.stoneMountains);
 		registerEntityEgg(EntityJellyfish.class, 0xed08b5, 0x9b0476);
 		
+		// Shrimp
+		EntityRegistry
+				.registerGlobalEntityID(EntityShrimp.class,
+						"shrimp", 79);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.shrimp.name",
+				"en_US",
+				"Shrimp");
+		EntityRegistry.addSpawn(EntityShrimp.class, 40, 5, 10,
+				EnumCreatureType.waterCreature, BiomeGenBase.plains,
+				BiomeGenBase.forest, BiomeGenBase.desert,
+				BiomeGenBase.extremeHills, BiomeGenBase.jungle,
+				BiomeGenBase.swampland, BiomeGenBase.taiga,
+				BiomeGenBase.ocean,
+				Biomes.greenMeadow, BiomeGenBase.extremeHills,
+				BiomeGenBase.extremeHillsEdge, BiomeGenBase.desertHills,
+				BiomeGenBase.river, BiomeGenBase.beach,
+				BiomeGenBase.forestHills, BiomeGenBase.frozenOcean,
+				BiomeGenBase.frozenRiver, BiomeGenBase.iceMountains,
+				BiomeGenBase.icePlains, BiomeGenBase.jungleHills,
+				BiomeGenBase.mushroomIsland,
+				BiomeGenBase.mushroomIslandShore,
+				BiomeGenBase.taigaHills, Biomes.greenMeadow,
+				Biomes.rainForest, Biomes.saltLake, Biomes.coldDesert,
+				Biomes.floweryField, Biomes.iceMountains,
+				Biomes.redRockMountains, Biomes.redShroomPlains,
+				Biomes.slimeLands, Biomes.stoneMountains);
+		registerEntityEgg(EntityShrimp.class, 0xef08c5, 0xaf04d6);
+		
 		// Duck
 		EntityRegistry
 				.registerGlobalEntityID(EntityDuck.class, "duck",
@@ -324,6 +356,29 @@ public class Mobs {
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.wanderer.name", "en_US", "Wanderer");
 		registerEntityEgg(EntityWanderer.class, 0x00dd00, 0x8b21de);
+		
+		// Power Blaze
+		EntityRegistry.registerGlobalEntityID(EntityPowerBlaze.class,
+				"powerblaze", 71);
+		EntityRegistry.addSpawn(EntityPowerBlaze.class, 1, 0, 1,
+				EnumCreatureType.monster, Biomes.venus);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.powerblaze.name", "en_US", "Power Blaze");
+		registerEntityEgg(EntityPowerBlaze.class, 0x9c1bad, 0x8b228b);
+		
+		// Fox
+		EntityRegistry.registerGlobalEntityID(EntityFox.class, "fox", 72);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.fox.name",
+				"en_US",
+				"Fox");
+		EntityRegistry.addSpawn(EntityFox.class, 5, 0, 2,
+				EnumCreatureType.creature, BiomeGenBase.plains,
+				BiomeGenBase.forest, BiomeGenBase.desert,
+				BiomeGenBase.extremeHills, BiomeGenBase.jungle,
+				BiomeGenBase.swampland, BiomeGenBase.taiga,
+				BiomeGenBase.ocean);
+		registerEntityEgg(EntityFox.class, 0xff8100, 0x000000);
 	}
 	
 	/**

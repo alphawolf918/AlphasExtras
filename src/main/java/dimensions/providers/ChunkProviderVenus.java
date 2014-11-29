@@ -43,9 +43,6 @@ import alphaitems.dimensions.venus.gen.WorldGenDungeonsVenus;
 
 public class ChunkProviderVenus implements IChunkProvider {
 	
-	final byte topBlock = (byte) Blocks.venusSand.blockID;
-	final byte fillerBlock = (byte) Blocks.venusRock.blockID;
-	
 	/** RNG. */
 	private final Random rand;
 	
@@ -228,9 +225,9 @@ public class ChunkProviderVenus implements IChunkProvider {
 							
 							for (int k2 = 0; k2 < 4; ++k2) {
 								if ((d16 += d15) > 0.0D) {
-									par3ArrayOfByte[j2 += short1] = topBlock;
+									par3ArrayOfByte[j2 += short1] = (byte) Blocks.venusSand.blockID;
 								} else if (k1 * 8 + l1 < b2) {
-									par3ArrayOfByte[j2 += short1] = fillerBlock;
+									par3ArrayOfByte[j2 += short1] = (byte) Blocks.venusRock.blockID;
 									;
 								} else {
 									par3ArrayOfByte[j2 += short1] = 0;
@@ -277,8 +274,8 @@ public class ChunkProviderVenus implements IChunkProvider {
 				int i1 = (int) (this.stoneNoise[k + l * 16] / 3.0D + 3.0D + this.rand
 						.nextDouble() * 0.25D);
 				int j1 = -1;
-				byte b1 = topBlock;
-				byte b2 = fillerBlock;
+				byte b1 = (byte) Blocks.venusSand.blockID;
+				byte b2 = (byte) Blocks.venusRock.blockID;
 				
 				for (int k1 = 127; k1 >= 0; --k1) {
 					int l1 = (l * 16 + k) * 128 + k1;
@@ -286,24 +283,22 @@ public class ChunkProviderVenus implements IChunkProvider {
 					if (k1 <= 0 + this.rand.nextInt(5)) {
 						par3ArrayOfByte[l1] = (byte) Blocks.barrier.blockID;
 					} else {
-						byte b3 = fillerBlock;
+						byte b3 = 0;
 						
 						if (b3 == 0) {
 							j1 = -1;
-						} else if (b3 == fillerBlock
+						} else if (b3 == (byte) Blocks.venusRock.blockID
 								|| b3 == Block.stone.blockID
-								|| b3 == Block.gravel.blockID) {
+								|| b3 == Block.gravel.blockID
+								|| b2 == Block.stone.blockID) {
 							if (j1 == -1) {
 								if (i1 <= 0) {
-									b1 = topBlock;
-									b2 = fillerBlock;
-									b3 = fillerBlock;
+									b1 = (byte) Blocks.venusSand.blockID;
+									b2 = (byte) Blocks.venusRock.blockID;
+									b3 = 0;
 								} else if (k1 >= b0 - 4 && k1 <= b0 + 1) {
-									b1 = topBlock;
-									b2 = fillerBlock;
-									;
-									b3 = fillerBlock;
-									;
+									b1 = (byte) Blocks.venusSand.blockID;
+									b2 = (byte) Blocks.venusRock.blockID;
 								}
 								
 								if (k1 < b0 && b1 == 0) {
@@ -327,14 +322,14 @@ public class ChunkProviderVenus implements IChunkProvider {
 								
 								if (j1 == 0 && b2 == Block.sand.blockID) {
 									j1 = this.rand.nextInt(4);
-									b2 = fillerBlock;
+									b2 = (byte) Blocks.venusRock.blockID;
 									;
 								}
 							}
 						}
 					}
 					if (b2 == Block.stone.blockID) {
-						b2 = fillerBlock;
+						b2 = (byte) Blocks.venusRock.blockID;
 					}
 				}
 			}
@@ -605,10 +600,6 @@ public class ChunkProviderVenus implements IChunkProvider {
 			k1 = k + this.rand.nextInt(16) + 8;
 			l1 = this.rand.nextInt(128);
 			i2 = l + this.rand.nextInt(16) + 8;
-			if (l1 <= 10) {
-				(new WorldGenLakes(Block.glowStone.blockID)).generate(
-						this.worldObj, this.rand, k1, l1, i2);
-			}
 			
 			if (k1 <= 10) {
 				k1 = k + this.rand.nextInt(16) + 10;

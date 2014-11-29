@@ -16,6 +16,7 @@ import alphaitems.blocks.Blocks;
 import alphaitems.dimensions.venus.Venus;
 import alphaitems.dimensions.venus.gen.WorldGenMinableVenus;
 import alphaitems.dimensions.venus.gen.structure.WorldGenCrystalTower;
+import alphaitems.dimensions.venus.gen.structure.WorldGenVenusRuins;
 import alphaitems.lib.Ids;
 import alphaitems.worldgen.WorldGenAcaciaTree;
 import alphaitems.worldgen.WorldGenBerries;
@@ -37,18 +38,20 @@ public class EventManager implements IWorldGenerator {
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		switch (world.provider.dimensionId) {
 			case -1:
-				generateNether(world, random, chunkX * 16, chunkZ * 16);
+				this.generateNether(world, random, chunkX * 16,
+						chunkZ * 16);
 				break;
 			case 0:
-				generateSurface(world, random, chunkX * 16, chunkZ * 16);
+				this.generateSurface(world, random, chunkX * 16,
+						chunkZ * 16);
 				break;
 			case 1:
-				generateEnd(world, random, chunkX * 16, chunkZ * 16);
+				this.generateEnd(world, random, chunkX * 16, chunkZ * 16);
 				break;
 		}
 		
 		if (world.provider.dimensionId == Venus.dimId) {
-			generateVenus(world, random, chunkX * 16, chunkZ * 16);
+			this.generateVenus(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
 	
@@ -94,14 +97,14 @@ public class EventManager implements IWorldGenerator {
 				|| currentBiome.equals(BiomeGenBase.extremeHills)
 				|| currentBiome.equals(BiomeGenBase.extremeHillsEdge)) {
 			this.spawnStructure(2, 520, world, random, x, y, z,
-					(new WorldGenBerries()));
+					new WorldGenBerries());
 			
 			// Hot Springs
 			if (currentBiome.equals(BiomeGenBase.desert)
 					|| currentBiome.equals(BiomeGenBase.desertHills)
 					|| currentBiome.equals(Biomes.badLands)) {
 				if (random.nextInt(1000) <= 10) {
-					(new WorldGenLakes(Blocks.hotWaterBlock.blockID))
+					new WorldGenLakes(Blocks.hotWaterBlock.blockID)
 							.generate(
 									world, random, x, y, z);
 				}
@@ -232,28 +235,28 @@ public class EventManager implements IWorldGenerator {
 		int Zcoord = z + random.nextInt(16);
 		
 		// Ender Super Coal Ore
-		(new WorldGenEnderMinable(Blocks.enderSpcOre.blockID, 1, 4))
+		new WorldGenEnderMinable(Blocks.enderSpcOre.blockID, 1, 4)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Ender Fueltonium Ore
-		(new WorldGenEnderMinable(Blocks.enderFnOre.blockID, 1, 2))
+		new WorldGenEnderMinable(Blocks.enderFnOre.blockID, 1, 2)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Ender Amaranth Ore
-		(new WorldGenEnderMinable(Blocks.amaranthEnderOre.blockID, 1, 2))
+		new WorldGenEnderMinable(Blocks.amaranthEnderOre.blockID, 1, 2)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Ender Dirt
-		(new WorldGenEnderMinable(Blocks.enderDirt.blockID, 4, 16))
+		new WorldGenEnderMinable(Blocks.enderDirt.blockID, 4, 16)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Ender Berries
 		this.spawnStructure(2, 120, world, random, x, Ycoord, z,
-				(new WorldGenEnderPlant()));
+				new WorldGenEnderPlant());
 	}
 	
 	private void generateNether(World world, Random random, int x, int z) {
@@ -262,32 +265,32 @@ public class EventManager implements IWorldGenerator {
 		int Zcoord = z + random.nextInt(16);
 		
 		// Nether Super Coal Ore
-		(new WorldGenNetherMinable(Blocks.spcNetherOre.blockID, 2, 4))
+		new WorldGenNetherMinable(Blocks.spcNetherOre.blockID, 2, 4)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Nether Fueltonium Ore
-		(new WorldGenNetherMinable(Blocks.fnOre.blockID, 2, 4))
+		new WorldGenNetherMinable(Blocks.fnOre.blockID, 2, 4)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Magma Slime
-		(new WorldGenNetherMinable(Blocks.magmaSlime.blockID, 2, 4))
+		new WorldGenNetherMinable(Blocks.magmaSlime.blockID, 2, 4)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Nether Amaranth Ore
-		(new WorldGenNetherMinable(Blocks.amaranthNetherOre.blockID, 1, 5))
+		new WorldGenNetherMinable(Blocks.amaranthNetherOre.blockID, 1, 5)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Nether Dirt Ore
-		(new WorldGenNetherMinable(Blocks.netherDirt.blockID, 10, 25))
+		new WorldGenNetherMinable(Blocks.netherDirt.blockID, 10, 25)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 		
 		// Brimstone
-		(new WorldGenNetherMinable(Blocks.brimStone.blockID, 20, 45))
+		new WorldGenNetherMinable(Blocks.brimStone.blockID, 20, 45)
 				.generate(
 						world, random, Xcoord, Ycoord, Zcoord);
 	}
@@ -307,6 +310,31 @@ public class EventManager implements IWorldGenerator {
 		this.addVenusOreSpawn(Blocks.venusGoldOre, world, random, x, z,
 				16, 16,
 				4 + random.nextInt(4), 5, 1, 35);
+		
+		// Bronze Ore
+		this.addVenusOreSpawn(Blocks.bronzeOre, world, random, x, z,
+				16, 16,
+				2 + random.nextInt(4), 4, 10, 26);
+		
+		// Lead Ore
+		this.addVenusOreSpawn(Blocks.leadOre, world, random, x, z,
+				16, 16,
+				2 + random.nextInt(4), 5, 6, 32);
+		
+		// Ferrous Ore
+		this.addVenusOreSpawn(Blocks.ferrousOre, world, random, x, z,
+				16, 16,
+				2 + random.nextInt(2), 5, 6, 32);
+		
+		// Silver Ore
+		this.addVenusOreSpawn(Blocks.silverOre, world, random, x, z,
+				16, 16,
+				2 + random.nextInt(2), 5, 6, 32);
+		
+		// Tin Ore
+		this.addVenusOreSpawn(Blocks.tinOre, world, random, x, z,
+				16, 16,
+				2 + random.nextInt(2), 6, 6, 32);
 		
 		// Diamond Ore
 		this.addVenusOreSpawn(Blocks.venusDiamondOre, world, random, x, z,
@@ -348,26 +376,44 @@ public class EventManager implements IWorldGenerator {
 				16, 16,
 				1 + random.nextInt(4), 2, 4, 24);
 		
+		// Zinc Ore
+		this.addVenusOreSpawn(Blocks.venusZincOre, world, random, x,
+				z,
+				16, 16,
+				2 + random.nextInt(4), 8, 2, 44);
+		
+		// Copper Ore
+		this.addVenusOreSpawn(Blocks.venusCopperOre, world, random, x,
+				z,
+				16, 16,
+				2 + random.nextInt(4), 14, 2, 59);
+		
 		// Better Grass
 		this.addVenusOreSpawn(Blocks.betterGrass, world, random, x,
 				z,
 				16, 16,
 				10 + random.nextInt(14), 20, 62, 68);
 		
+		// Creep Stone
+		this.addVenusOreSpawn(Blocks.creepStone, world, random, x,
+				z,
+				16, 16,
+				10 + random.nextInt(10), 15, 4, 46);
+		
 		// Chest Gen
 		if (random.nextInt(10) <= 4) {
 			this.spawnStructure(10, 136, world, random, x,
 					world.getHeightValue(x, z), z,
-					(new WorldGenTreasureChest()));
+					new WorldGenTreasureChest());
 		}
 		
 		int y = world.getHeightValue(x, z);
 		
 		// Crystal Tower
-		if (random.nextInt(10) <= 4) {
+		if (random.nextInt(15) <= 2) {
 			this.spawnStructure(10, 436, world, random, x,
-					y, z,
-					(new WorldGenCrystalTower()));
+					y - 10, z,
+					new WorldGenCrystalTower());
 		}
 		
 		// Grass Gen
@@ -381,11 +427,18 @@ public class EventManager implements IWorldGenerator {
 		// Shinestone Gen
 		this.spawnStructure(5, 10, world, random, x, y, z,
 				new WorldGenShinestone());
+		
+		// Ruins
+		if (random.nextInt(10) <= 4) {
+			this.spawnStructure(10, 836, world, random, x,
+					y - 10, z,
+					new WorldGenVenusRuins());
+		}
 	}
 	
 	/**
 	 * Spawns a structure in the world
-	 * 
+	 *
 	 * @author Alpha Wolf
 	 * @param minChance
 	 *            The minimum chance that the structure has to spawn.
@@ -396,7 +449,9 @@ public class EventManager implements IWorldGenerator {
 	 * @param random
 	 *            Needed for randomization and comparison.
 	 * @param x
+	 *            The X coordinate to spawn in at.
 	 * @param y
+	 *            The Y coordinate to spawn in at.
 	 * @param z
 	 * @param wg
 	 *            The structure.
@@ -413,7 +468,7 @@ public class EventManager implements IWorldGenerator {
 			int blockXPos, int blockZPos, int maxX, int maxZ,
 			int maxVeinSize,
 			int chancesToSpawn, int minY, int maxY) {
-		int maxPossY = minY + (maxY - 1);
+		int maxPossY = minY + maxY - 1;
 		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16 : "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0 : "addOreSpawn: The Minimum Y must be greater than 0";
@@ -425,7 +480,7 @@ public class EventManager implements IWorldGenerator {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinable(block.blockID, maxVeinSize)).generate(
+			new WorldGenMinable(block.blockID, maxVeinSize).generate(
 					world, random, posX, posY, posZ);
 		}
 		
@@ -433,8 +488,8 @@ public class EventManager implements IWorldGenerator {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinableVenus(block.blockID, maxVeinSize,
-					Ids.venusRockID))
+			new WorldGenMinableVenus(block.blockID, maxVeinSize,
+					Ids.venusRockID)
 					.generate(
 							world, random, posX, posY, posZ);
 		}
@@ -443,7 +498,7 @@ public class EventManager implements IWorldGenerator {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinableVenus(block.blockID, maxVeinSize))
+			new WorldGenMinableVenus(block.blockID, maxVeinSize)
 					.generate(
 							world, random, posX, posY, posZ);
 		}
@@ -453,7 +508,7 @@ public class EventManager implements IWorldGenerator {
 			int blockXPos, int blockZPos, int maxX, int maxZ,
 			int maxVeinSize,
 			int chancesToSpawn, int minY, int maxY) {
-		int maxPossY = minY + (maxY - 1);
+		int maxPossY = minY + maxY - 1;
 		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16 : "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0 : "addOreSpawn: The Minimum Y must be greater than 0";
@@ -465,7 +520,7 @@ public class EventManager implements IWorldGenerator {
 			int posX = blockXPos + random.nextInt(maxX);
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
-			(new WorldGenMinable(block.blockID, maxVeinSize)).generate(
+			new WorldGenMinable(block.blockID, maxVeinSize).generate(
 					world,
 					random, posX, posY, posZ);
 		}
@@ -476,7 +531,7 @@ public class EventManager implements IWorldGenerator {
 			int maxVeinSize,
 			int chancesToSpawn, int minY, int maxY) {
 		WorldGenerator wg = null;
-		int maxPossY = minY + (maxY - 1);
+		int maxPossY = minY + maxY - 1;
 		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16 : "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0 : "addOreSpawn: The Minimum Y must be greater than 0";
@@ -496,7 +551,7 @@ public class EventManager implements IWorldGenerator {
 			} else {
 				wg = new WorldGenMinable(block.blockID, maxVeinSize);
 			}
-			(wg).generate(world,
+			wg.generate(world,
 					random, posX, posY, posZ);
 		}
 	}

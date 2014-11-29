@@ -5,7 +5,6 @@ import alphaitems.blocks.renderers.RenderAcaciaLog;
 import alphaitems.proxies.Proxies;
 
 public class BlockHandler {
-	
 	public static void init() {
 		AcaciaLog.setRenderId(Proxies.proxy
 				.registerBlockHandler(new RenderAcaciaLog()));

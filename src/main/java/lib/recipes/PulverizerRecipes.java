@@ -45,11 +45,11 @@ public class PulverizerRecipes {
 		
 		// Venus Iron
 		ThermalExpansionHelper.addPulverizerRecipe(4000, new ItemStack(
-				Blocks.venusIronOre, 6), new ItemStack(Block.oreIron, 4));
+				Blocks.venusIronOre, 1), new ItemStack(Block.oreIron, 6));
 		
 		// Venus Gold
 		ThermalExpansionHelper.addPulverizerRecipe(4500, new ItemStack(
-				Blocks.venusGoldOre, 6), new ItemStack(Block.oreGold, 4));
+				Blocks.venusGoldOre, 1), new ItemStack(Block.oreGold, 6));
 		
 		// Venus Diamond
 		ThermalExpansionHelper.addPulverizerRecipe(4550, new ItemStack(
@@ -85,6 +85,21 @@ public class PulverizerRecipes {
 		ThermalExpansionHelper.addPulverizerRecipe(4010, new ItemStack(
 				Blocks.venusShardOre, 1), new ItemStack(
 				Blocks.enderShardOre, 6));
+		
+		// Copper
+		ThermalExpansionHelper.addPulverizerRecipe(4500,
+				new ItemStack(Blocks.venusCopperOre, 1), new ItemStack(
+						Items.copperDust, 2));
+		
+		// Bronze
+		ThermalExpansionHelper.addPulverizerRecipe(4500,
+				new ItemStack(Blocks.bronzeOre, 1), new ItemStack(
+						Items.bronzeDust, 2));
+		
+		// Zinc
+		ThermalExpansionHelper.addPulverizerRecipe(4500,
+				new ItemStack(Blocks.venusZincOre, 1), new ItemStack(
+						Items.zincDust, 2));
 		
 		// Regular FN Ore
 		NBTTagCompound fSend = new NBTTagCompound();
@@ -124,11 +139,11 @@ public class PulverizerRecipes {
 		feSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		fSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Blocks.enderFnOre, 1)).writeToNBT(feSend
+		new ItemStack(Blocks.enderFnOre, 1).writeToNBT(feSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.fuelonite, 6)).writeToNBT(feSend
+		new ItemStack(Items.fuelonite, 6).writeToNBT(feSend
 				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Items.spcItem, 1)).writeToNBT(feSend
+		new ItemStack(Items.spcItem, 1).writeToNBT(feSend
 				.getCompoundTag("secondaryOutput"));
 		feSend.setInteger("secondaryChance", 15);
 		FMLInterModComms.sendMessage("ThermalExpansion",
@@ -141,9 +156,9 @@ public class PulverizerRecipes {
 		fiSend.setCompoundTag("input", new NBTTagCompound());
 		fiSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Items.fuelIngot, 1)).writeToNBT(fiSend
+		new ItemStack(Items.fuelIngot, 1).writeToNBT(fiSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.fuelonite, 1)).writeToNBT(fiSend
+		new ItemStack(Items.fuelonite, 1).writeToNBT(fiSend
 				.getCompoundTag("primaryOutput"));
 		FMLInterModComms.sendMessage("ThermalExpansion",
 				"PulverizerRecipe",
@@ -155,9 +170,9 @@ public class PulverizerRecipes {
 		saltSend.setCompoundTag("input", new NBTTagCompound());
 		saltSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Blocks.saltBlock, 1)).writeToNBT(saltSend
+		new ItemStack(Blocks.saltBlock, 1).writeToNBT(saltSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.saltDust, 4)).writeToNBT(saltSend
+		new ItemStack(Items.saltDust, 4).writeToNBT(saltSend
 				.getCompoundTag("primaryOutput"));
 		FMLInterModComms.sendMessage("ThermalExpansion",
 				"PulverizerRecipe",
@@ -169,9 +184,9 @@ public class PulverizerRecipes {
 		wheatSend.setCompoundTag("input", new NBTTagCompound());
 		wheatSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Item.wheat, 1)).writeToNBT(wheatSend
+		new ItemStack(Item.wheat, 1).writeToNBT(wheatSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.flour, 2)).writeToNBT(wheatSend
+		new ItemStack(Items.flour, 2).writeToNBT(wheatSend
 				.getCompoundTag("primaryOutput"));
 		FMLInterModComms.sendMessage("ThermalExpansion",
 				"PulverizerRecipe",
@@ -183,9 +198,9 @@ public class PulverizerRecipes {
 		wheatSend.setCompoundTag("input", new NBTTagCompound());
 		wheatSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Items.rawShrimp, 1)).writeToNBT(shrimpSend
+		new ItemStack(Items.rawShrimp, 1).writeToNBT(shrimpSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.fishFlakes, 2)).writeToNBT(shrimpSend
+		new ItemStack(Items.fishFlakes, 2).writeToNBT(shrimpSend
 				.getCompoundTag("primaryOutput"));
 		FMLInterModComms.sendMessage("ThermalExpansion",
 				"PulverizerRecipe",
@@ -198,11 +213,11 @@ public class PulverizerRecipes {
 		ampSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		ampSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Blocks.amaranthOre, 1)).writeToNBT(ampSend
+		new ItemStack(Blocks.amaranthOre, 1).writeToNBT(ampSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.ampDust, 2)).writeToNBT(ampSend
+		new ItemStack(Items.ampDust, 2).writeToNBT(ampSend
 				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.redstone, 1)).writeToNBT(ampSend
+		new ItemStack(Item.redstone, 1).writeToNBT(ampSend
 				.getCompoundTag("secondaryOutput"));
 		ampSend.setInteger("secondaryChance", 5);
 		FMLInterModComms.sendMessage("ThermalExpansion",
@@ -216,11 +231,11 @@ public class PulverizerRecipes {
 		ampnSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		ampnSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Blocks.amaranthNetherOre, 1)).writeToNBT(ampnSend
+		new ItemStack(Blocks.amaranthNetherOre, 1).writeToNBT(ampnSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.ampDust, 4)).writeToNBT(ampnSend
+		new ItemStack(Items.ampDust, 4).writeToNBT(ampnSend
 				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.redstone, 1)).writeToNBT(ampnSend
+		new ItemStack(Item.redstone, 1).writeToNBT(ampnSend
 				.getCompoundTag("secondaryOutput"));
 		ampnSend.setInteger("secondaryChance", 10);
 		FMLInterModComms.sendMessage("ThermalExpansion",
@@ -234,11 +249,11 @@ public class PulverizerRecipes {
 		ampeSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		ampeSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Blocks.amaranthEnderOre, 1)).writeToNBT(ampeSend
+		new ItemStack(Blocks.amaranthEnderOre, 1).writeToNBT(ampeSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.ampDust, 6)).writeToNBT(ampeSend
+		new ItemStack(Items.ampDust, 6).writeToNBT(ampeSend
 				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.redstone, 1)).writeToNBT(ampeSend
+		new ItemStack(Item.redstone, 1).writeToNBT(ampeSend
 				.getCompoundTag("secondaryOutput"));
 		ampeSend.setInteger("secondaryChance", 15);
 		FMLInterModComms.sendMessage("ThermalExpansion",
@@ -252,11 +267,11 @@ public class PulverizerRecipes {
 		milkSend.setCompoundTag("primaryOutput", new NBTTagCompound());
 		fSend.setCompoundTag("secondaryOutput", new NBTTagCompound());
 		
-		(new ItemStack(Item.bucketMilk, 1)).writeToNBT(milkSend
+		new ItemStack(Item.bucketMilk, 1).writeToNBT(milkSend
 				.getCompoundTag("input"));
-		(new ItemStack(Items.butterItem, 4)).writeToNBT(milkSend
+		new ItemStack(Items.butterItem, 4).writeToNBT(milkSend
 				.getCompoundTag("primaryOutput"));
-		(new ItemStack(Item.bucketEmpty, 1)).writeToNBT(milkSend
+		new ItemStack(Item.bucketEmpty, 1).writeToNBT(milkSend
 				.getCompoundTag("secondaryOutput"));
 		milkSend.setInteger("secondaryChance", 100);
 		FMLInterModComms.sendMessage("ThermalExpansion",

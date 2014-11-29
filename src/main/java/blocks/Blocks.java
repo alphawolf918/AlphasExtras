@@ -37,35 +37,44 @@ import alphaitems.blocks.plants.trees.acacia.AcaciaLog;
 import alphaitems.blocks.plants.trees.acacia.AcaciaPlanks;
 import alphaitems.blocks.plants.trees.acacia.AcaciaSapling;
 import alphaitems.blocks.portalblocks.VenusPortal;
+import alphaitems.blocks.venus.CopperBlock;
 import alphaitems.blocks.venus.CreepStone;
 import alphaitems.blocks.venus.VenusBrick;
 import alphaitems.blocks.venus.VenusCobble;
 import alphaitems.blocks.venus.VenusMossyCobble;
 import alphaitems.blocks.venus.VenusSand;
 import alphaitems.blocks.venus.VenusStone;
+import alphaitems.blocks.venus.ZincBlock;
 import alphaitems.blocks.venus.ores.VenusAmaranthOre;
+import alphaitems.blocks.venus.ores.VenusBronzeOre;
 import alphaitems.blocks.venus.ores.VenusCoalOre;
+import alphaitems.blocks.venus.ores.VenusCopperOre;
 import alphaitems.blocks.venus.ores.VenusDiamondOre;
 import alphaitems.blocks.venus.ores.VenusEmeraldOre;
 import alphaitems.blocks.venus.ores.VenusEnderShardOre;
+import alphaitems.blocks.venus.ores.VenusFerrousOre;
 import alphaitems.blocks.venus.ores.VenusFueltoniumOre;
 import alphaitems.blocks.venus.ores.VenusGoldOre;
 import alphaitems.blocks.venus.ores.VenusIronOre;
+import alphaitems.blocks.venus.ores.VenusLeadOre;
 import alphaitems.blocks.venus.ores.VenusRedstoneOre;
 import alphaitems.blocks.venus.ores.VenusSPCOre;
+import alphaitems.blocks.venus.ores.VenusSilverOre;
+import alphaitems.blocks.venus.ores.VenusTinOre;
+import alphaitems.blocks.venus.ores.VenusZincOre;
 import alphaitems.lib.Ids;
 import alphaitems.lib.State;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Blocks {
-	
+
 	public static final Block spcOre = new SuperCoalOre(Ids.superCoalOreID);
 	public static final Block spcBlock = new SuperCoalBlock(
 			Ids.superCoalBlockID);
 	public static final Block spcNetherOre = new SuperCoalNetherOre(
 			Ids.superCoalNetherOreID);
-	
+
 	public static final Block cbBlue = new ColoredBricksBlue(
 			Ids.cbBlockBlueID);
 	public static final Block cbRed = new ColoredBricksRed(
@@ -98,56 +107,56 @@ public class Blocks {
 			Ids.cbBlockLightGrayID);
 	public static final Block cbLightBlue = new ColoredBricksLightBlue(
 			Ids.cbBlockLightBlueID);
-	
+
 	public static final Block cbBlueStairs = new StairBlock(
 			Ids.blueBrickStairsID, cbBlue, 1)
-			.setUnlocalizedName("bluebrickstairs");
+	.setUnlocalizedName("bluebrickstairs");
 	public static final Block cbRedStairs = new StairBlock(
 			Ids.redBrickStairsID, cbRed, 1)
-			.setUnlocalizedName("redbrickstairs");
+	.setUnlocalizedName("redbrickstairs");
 	public static final Block cbGreenStairs = new StairBlock(
 			Ids.greenBrickStairsID, cbGreen, 1)
-			.setUnlocalizedName("greenbrickstairs");
+	.setUnlocalizedName("greenbrickstairs");
 	public static final Block cbPurpleStairs = new StairBlock(
 			Ids.purpleBrickStairsID, cbPurple, 1)
-			.setUnlocalizedName("purplebrickstairs");
+	.setUnlocalizedName("purplebrickstairs");
 	public static final Block cbYellowStairs = new StairBlock(
 			Ids.yellowBrickStairsID, cbYellow, 1)
-			.setUnlocalizedName("yellowbrickstairs");
+	.setUnlocalizedName("yellowbrickstairs");
 	public static final Block cbCyanStairs = new StairBlock(
 			Ids.cyanBrickStairsID, cbCyan, 1)
-			.setUnlocalizedName("cyanbrickstairs");
+	.setUnlocalizedName("cyanbrickstairs");
 	public static final Block cbBlackStairs = new StairBlock(
 			Ids.blackBrickStairsID, cbBlack, 1)
-			.setUnlocalizedName("blackbrickstairs");
+	.setUnlocalizedName("blackbrickstairs");
 	public static final Block cbWhiteStairs = new StairBlock(
 			Ids.whiteBrickStairsID, cbWhite, 1)
-			.setUnlocalizedName("whitebrickstairs");
+	.setUnlocalizedName("whitebrickstairs");
 	public static final Block cbPinkStairs = new StairBlock(
 			Ids.pinkBrickStairsID, cbPink, 2)
-			.setUnlocalizedName("pinkbrickstairs");
+	.setUnlocalizedName("pinkbrickstairs");
 	public static final Block cbBrownStairs = new StairBlock(
 			Ids.brownBrickStairsID, cbBrown, 1)
-			.setUnlocalizedName("brownbrickstairs");
+	.setUnlocalizedName("brownbrickstairs");
 	public static final Block cbLightBlueStairs = new StairBlock(
 			Ids.lightBlueBrickStairsID, cbLightBlue, 1)
-			.setUnlocalizedName("lightbluebrickstairs");
+	.setUnlocalizedName("lightbluebrickstairs");
 	public static final Block cbGrayStairs = new StairBlock(
 			Ids.grayBrickStairsID, cbGray, 1)
-			.setUnlocalizedName("graybrickstairs");
+	.setUnlocalizedName("graybrickstairs");
 	public static final Block cbLightGrayStairs = new StairBlock(
 			Ids.lightGrayBrickStairsID, cbLightGray, 1)
-			.setUnlocalizedName("lightgraybrickstairs");
+	.setUnlocalizedName("lightgraybrickstairs");
 	public static final Block cbLimeStairs = new StairBlock(
 			Ids.limeBrickStairsID, cbLime, 1)
-			.setUnlocalizedName("limebrickstairs");
+	.setUnlocalizedName("limebrickstairs");
 	public static final Block cbMagentaStairs = new StairBlock(
 			Ids.magentaBrickStairsID, cbMagenta, 1)
-			.setUnlocalizedName("magentabrickstairs");
+	.setUnlocalizedName("magentabrickstairs");
 	public static final Block cbOrangeStairs = new StairBlock(
 			Ids.orangeBrickStairsID, cbOrange, 2)
-			.setUnlocalizedName("orangebrickstairs");
-	
+	.setUnlocalizedName("orangebrickstairs");
+
 	public static final Block fueltonium = new Fueltonium(
 			Ids.fueltoniumBlockID);
 	public static final Block fuelBlockID = new FueltoniumBlock(
@@ -164,29 +173,29 @@ public class Blocks {
 			Ids.marbleBlockID);
 	public static final Block shineStone = new Shinestone(Ids.shineStoneID);
 	public static final Block shineTorch = new Shinetorch(Ids.shineTorchID);
-	
+
 	public static final Block marbleStairs = new StairBlock(
 			Ids.marbleStairsID, marbleBlock, 0)
-			.setUnlocalizedName("marblestairs");
-	public static final Block marbleRailing = (new RailingBlock(
+	.setUnlocalizedName("marblestairs");
+	public static final Block marbleRailing = new RailingBlock(
 			Ids.marbleRailing,
 			"awei:marble",
-			Material.iron)).setHardness(3.0F).setResistance(8.8F)
+			Material.iron).setHardness(3.0F).setResistance(8.8F)
 			.setStepSound(Block.soundMetalFootstep)
 			.setUnlocalizedName("marblerailing");
-	
+
 	public static final Block blackMarbleBlock = new BlackMarbleBlock(
 			Ids.blackMarbleID);
 	public static final Block blackMarbleStairs = new StairBlock(
 			Ids.blackMarbleStairsID, blackMarbleBlock, 0)
-			.setUnlocalizedName("blackmarblestairs");
-	public static final Block blackMarbleRailing = (new RailingBlock(
+	.setUnlocalizedName("blackmarblestairs");
+	public static final Block blackMarbleRailing = new RailingBlock(
 			Ids.blackMarbleRailingID,
 			"awei:blackmarble",
-			Material.iron)).setHardness(3.0F).setResistance(8.8F)
+			Material.iron).setHardness(3.0F).setResistance(8.8F)
 			.setStepSound(Block.soundMetalFootstep)
 			.setUnlocalizedName("blackmarblerailing");
-	
+
 	public static final Block swampClay = new SwampClay(Ids.swampClayID);
 	public static final Block seaLamp = new SeaLamp(Ids.seaLampID);
 	public static final Block enderSpcOre = new EnderSPCOre(
@@ -247,13 +256,13 @@ public class Blocks {
 	public static final Block barrier = new BarrierBlock(Ids.barrierID);
 	public static final Block acaciaStairs = new StairBlock(
 			Ids.acaciaStairsID, acaciaPlanks, 0)
-			.setUnlocalizedName("acaciastairs");
+	.setUnlocalizedName("acaciastairs");
 	public static final Block redRockBrickStairs = new StairBlock(
 			Ids.redRockBrickStairsID, redRockBrick, 0)
-			.setUnlocalizedName("redrockbrickstairs");
+	.setUnlocalizedName("redrockbrickstairs");
 	public static final Block redRockCobbleWall = new WallBlock(
 			Ids.redRockWallID, redCobble)
-			.setUnlocalizedName("redrockcobblewall");
+	.setUnlocalizedName("redrockcobblewall");
 	public static final Block ironStairs = new StairBlock(
 			Ids.ironStairsID, Block.blockIron, 0);
 	public static final Block weatheredBricks = new WeatheredBricks(
@@ -263,32 +272,32 @@ public class Blocks {
 			Ids.enderShardOreID);
 	public static final Block resistanceGlass = new SoulGlass(
 			Ids.soulGlassID);
-	
-	public static final Block fenceSpruce = (new RailingBlock(
+
+	public static final Block fenceSpruce = new RailingBlock(
 			Ids.fenceSpruceID,
 			"planks_spruce",
-			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			Material.wood).setHardness(3.0F).setResistance(0.8F)
 			.setStepSound(Block.soundWoodFootstep)
 			.setUnlocalizedName("fenceSpruce");
-	public static final Block fenceJungle = (new RailingBlock(
+	public static final Block fenceJungle = new RailingBlock(
 			Ids.fenceJungleID,
 			"planks_jungle",
-			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			Material.wood).setHardness(3.0F).setResistance(0.8F)
 			.setStepSound(Block.soundWoodFootstep)
 			.setUnlocalizedName("fenceJungle");
-	public static final Block fenceBirch = (new RailingBlock(
+	public static final Block fenceBirch = new RailingBlock(
 			Ids.fenceBirchID,
 			"planks_birch",
-			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			Material.wood).setHardness(3.0F).setResistance(0.8F)
 			.setStepSound(Block.soundWoodFootstep)
 			.setUnlocalizedName("fenceBirch");
-	public static final Block fenceAcacia = (new RailingBlock(
+	public static final Block fenceAcacia = new RailingBlock(
 			Ids.fenceAcaciaID,
 			"awei:acaciaplanks",
-			Material.wood)).setHardness(3.0F).setResistance(0.8F)
+			Material.wood).setHardness(3.0F).setResistance(0.8F)
 			.setStepSound(Block.soundWoodFootstep)
 			.setUnlocalizedName("fenceAcacia");
-	
+
 	public static final Block venusRock = new VenusStone(Ids.venusRockID);
 	public static final Block venusSand = new VenusSand(Ids.venusSandID);
 	public static final Block venusPortal = new VenusPortal(
@@ -313,7 +322,21 @@ public class Blocks {
 			Ids.venusAmaranthOreID);
 	public static final Block venusShardOre = new VenusEnderShardOre(
 			Ids.venusShardOreID);
-	
+	public static final Block venusZincOre = new VenusZincOre(
+			Ids.zincBlockOreID);
+	public static final Block venusCopperOre = new VenusCopperOre(
+			Ids.copperBlockOreID);
+	public static final Block copperBlock = new CopperBlock(
+			Ids.copperBlockID);
+	public static final Block bronzeOre = new VenusBronzeOre(
+			Ids.bronzeBlockOreID);
+	public static final Block leadOre = new VenusLeadOre(Ids.leadOreID);
+	public static final Block ferrousOre = new VenusFerrousOre(
+			Ids.ferrousOreID);
+	public static final Block silverOre = new VenusSilverOre(
+			Ids.silverOreID);
+	public static final Block tinOre = new VenusTinOre(Ids.tinOreID);
+	public static final Block zincBlock = new ZincBlock(Ids.zincBlockID);
 	public static final Block creepStone = new CreepStone(Ids.creepStoneID);
 	public static final Block venusCobble = new VenusCobble(
 			Ids.venusCobbleID);
@@ -321,16 +344,16 @@ public class Blocks {
 			Ids.venusMossyCobbleID);
 	public static final Block venusBrick = new VenusBrick(
 			Ids.venusRockBrickID);
-	
+
 	public static final Block ampCellOn = new AMPCell(Ids.ampCellOnID,
 			State.ON, "on");
 	public static final Block ampCellOff = new AMPCell(Ids.ampCellOffID,
 			State.OFF, "off");
-	
+
 	public static final Block polishedCrystal = new PolishedCrystal(
 			Ids.polishedCrystalID);
 	public static final Block lostCrystal = new Crystal(Ids.crystalID);
-	
+
 	public static Fluid hotWater = new FluidHotWater("HotWater");
 	public static Block hotWaterBlock = new BlockHotWater(
 			Ids.hotSpringBlockID,
@@ -338,7 +361,7 @@ public class Blocks {
 	public static Fluid fuel = new FluidFuel("LiquidFuel");
 	public static Block fuelLiquidBlock = new BlockFuel(Ids.fuelLiquidID,
 			fuel);
-	
+
 	public static void init() {
 		addBlock(spcOre, "Super Charged Coal Ore");
 		addBlock(spcBlock, "Super Charged Coal Block");
@@ -461,12 +484,21 @@ public class Blocks {
 		addBlock(venusMossy, "Solar Mosscobble");
 		addBlock(venusBrick, "Venus Brick");
 		addBlock(ampCellOff, "AMP Cell");
+		addBlock(venusZincOre, "Zinc Ore");
+		addBlock(venusCopperOre, "Solar Copper Ore");
+		addBlock(ferrousOre, "Solar Ferrous Ore");
+		addBlock(leadOre, "Solar Lead Ore");
+		addBlock(tinOre, "Tin Ore");
+		addBlock(silverOre, "Solar Silver Ore");
+		addBlock(copperBlock, "Copper Block");
+		addBlock(zincBlock, "Zinc Block");
+		addBlock(bronzeOre, "Solar Bronze Ore");
 	}
-	
+
 	public static void registerBlock(Block par1Block, String par2Name) {
 		GameRegistry.registerBlock(par1Block, par2Name);
 	}
-	
+
 	public static void addBlock(Block par1Block, String par2Name) {
 		GameRegistry.registerBlock(par1Block, par2Name);
 		LanguageRegistry.addName(par1Block, par2Name);

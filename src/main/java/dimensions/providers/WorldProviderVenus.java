@@ -5,12 +5,16 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.client.IRenderHandler;
 import alphaitems.dimensions.venus.Venus;
 import alphaitems.dimensions.venus.WorldChunkManagerVenus;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderVenus extends WorldProvider {
+	
+	public static IRenderHandler skyRenderer = null;
+	public static IRenderHandler cloudRenderer = null;
 	
 	@Override
 	public String getDimensionName() {
@@ -20,16 +24,54 @@ public class WorldProviderVenus extends WorldProvider {
 	@Override
 	public void registerWorldChunkManager()
 	{
-		// this.worldChunkMgr = new WorldChunkManagerHell(
-		// Biomes.venus, 8F, 6.0F);
 		this.worldChunkMgr = new WorldChunkManagerVenus(this.getSeed(),
 				terrainType);
 		this.dimensionId = Venus.dimId;
 	}
 	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public boolean getWorldHasVoidParticles() {
+		return false;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IRenderHandler getSkyRenderer()
+	{
+		return this.skyRenderer;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void setSkyRenderer(IRenderHandler skyRenderer)
+	{
+		this.skyRenderer = skyRenderer;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IRenderHandler getCloudRenderer()
+	{
+		return cloudRenderer;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void setCloudRenderer(IRenderHandler renderer)
+	{
+		cloudRenderer = renderer;
+	}
+	
+	@Override
+	public int getHeight()
+	{
+		return 256;
+	}
+	
 	@Override
 	public float getStarBrightness(float par1) {
-		return 4.0F;
+		return 8.0F;
 	}
 	
 	protected synchronized String setUserMessage(String par1Str)
@@ -41,19 +83,7 @@ public class WorldProviderVenus extends WorldProvider {
 	@SideOnly(Side.CLIENT)
 	public float getCloudHeight()
 	{
-		return 128.0F;
-	}
-	
-	@Override
-	protected void generateLightBrightnessTable()
-	{
-		float f = 12.0F;
-		for (int i = 0; i <= 15; i++)
-		{
-			float f1 = 12.0F - i / 15.0F;
-			this.lightBrightnessTable[i] = ((1.0F - f1)
-					/ (f1 * 3.0F + 1.0F) * (1.0F - f) + f);
-		}
+		return 208.0F;
 	}
 	
 	public int getSkyColorByTemp(float f) {

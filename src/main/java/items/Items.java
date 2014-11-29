@@ -3,7 +3,6 @@ package alphaitems.items;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;
-import net.minecraft.item.ItemEgg;
 import alphaitems.blocks.Blocks;
 import alphaitems.creativetabs.ModTabs;
 import alphaitems.items.coloredbricks.ColoredBrickBlack;
@@ -33,11 +32,17 @@ import alphaitems.items.food.EnderBerry;
 import alphaitems.items.food.FriedEggItem;
 import alphaitems.items.food.RawDuckMeat;
 import alphaitems.items.tools.AmaranthAxe;
+import alphaitems.items.venus.BronzeDust;
+import alphaitems.items.venus.BronzeIngot;
+import alphaitems.items.venus.CopperDust;
+import alphaitems.items.venus.CopperIngot;
+import alphaitems.items.venus.ZincDust;
+import alphaitems.items.venus.ZincIngot;
 import alphaitems.lib.Ids;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Items {
-	
+
 	public static final Item spcItem = new SuperCoalItem(Ids.superCoalID);
 	public static final Item cbBlue = new ColoredBrickBlue(
 			Ids.coloredBricksBlueID);
@@ -79,7 +84,7 @@ public class Items {
 			Ids.marbleStickID);
 	public static final Item blackMarbleStick = new BlackMarbleStick(
 			Ids.blackMarbleStickID);
-	
+
 	public static final Item fuelIngot = new FuelIngot(Ids.fuelIngotID);
 	public static final Item friedEgg = new FriedEggItem(Ids.friedEggID);
 	public static final Item heart = new ItemHeart(Ids.heartID);
@@ -114,7 +119,7 @@ public class Items {
 			Ids.duckCookedID);
 	public static final Item duckFeather = new DuckFeather(
 			Ids.duckFeatherID);
-	public static final ItemEgg duckEgg = new DuckEgg(Ids.duckEggID);
+	public static final DuckEgg duckEgg = new DuckEgg(Ids.duckEggID);
 	public static final Item shadowBone = new ShadowBone(Ids.shadowBoneID);
 	public static final Item fishFlakes = new FishFlakes(Ids.fishFlakesID);
 	public static final Item fishFood = new FishFood(Ids.fishFoodID);
@@ -122,22 +127,32 @@ public class Items {
 	public static final Item rawShrimp = new RawShrimp(Ids.shrimpRawID);
 	public static final Item cookedShrimp = new CookedShrimp(
 			Ids.shrimpCookedID);
-	
+
 	public static final Item amaranthAxe = new AmaranthAxe(
 			Ids.amaranthAxeID, EnumToolMaterial.EMERALD);
-	
+
+	public static final Item zincIngot = new ZincIngot(Ids.zincIngotID);
+	public static final Item copperIngot = new CopperIngot(
+			Ids.copperIngotID);
+	public static final Item bronzeIngot = new BronzeIngot(
+			Ids.bronzeIngotID);
+
+	public static final Item zincDust = new ZincDust(Ids.zincDustID);
+	public static final Item copperDust = new CopperDust(Ids.copperDustID);
+	public static final Item bronzeDust = new BronzeDust(Ids.bronzeDustID);
+
 	public static Item bucketHotWater = new ItemBucket(
 			Ids.hotWaterBucketID,
 			Blocks.hotWaterBlock.blockID).setCreativeTab(ModTabs.aiTab)
 			.setUnlocalizedName("hotwaterbucket").setContainerItem(
 					Item.bucketEmpty)
-			.setTextureName("awei:hotwaterbucket");
+					.setTextureName("awei:hotwaterbucket");
 	public static Item bucketFuel = new ItemBucket(Ids.fuelBucketID,
 			Blocks.fuelLiquidBlock.blockID).setCreativeTab(ModTabs.aiTab)
 			.setUnlocalizedName("fueltoniumBucket").setContainerItem(
 					Item.bucketEmpty)
-			.setTextureName("awei:fuelbucket");
-	
+					.setTextureName("awei:fuelbucket");
+
 	public static void init() {
 		addItem(spcItem, "Super Charged Coal");
 		addItem(cbBlue, "Blue Brick Ingot");
@@ -197,8 +212,14 @@ public class Items {
 		addItem(rawShrimp, "Raw Shrimp");
 		addItem(cookedShrimp, "Cooked Shrimp");
 		addItem(amaranthAxe, "Amaranth Axe");
+		addItem(zincIngot, "Zinc Ingot");
+		addItem(copperIngot, "Copper Ingot");
+		addItem(bronzeIngot, "Bronze Ingot");
+		addItem(copperDust, "Copper Dust");
+		addItem(zincDust, "Zinc Dust");
+		addItem(bronzeDust, "Bronze Dust");
 	}
-	
+
 	public static void addItem(Item item, String name) {
 		LanguageRegistry.addName(item, name);
 	}

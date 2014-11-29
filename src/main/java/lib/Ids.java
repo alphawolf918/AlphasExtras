@@ -24,11 +24,11 @@ public class Ids {
 	public static final int shineDustID = 16072;
 	public static final int marbleStickID = 16073;
 	public static final int blackMarbleStickID = 16074;
-	
+
 	public static final int superCoalOreID = 232;
 	public static final int superCoalBlockID = 233;
 	public static final int superCoalNetherOreID = 234;
-	
+
 	public static final int cbBlockBlueID = 2637;
 	public static final int cbBlockRedID = 2638;
 	public static final int cbBlockGreenID = 237;
@@ -47,7 +47,7 @@ public class Ids {
 	public static final int cbBlockBrownID = 250;
 	public static final int cbOrangeID = 623;
 	public static final int cbBrownID = 624;
-	
+
 	public static final int blueBrickStairsID = 2537;
 	public static final int redBrickStairsID = 2538;
 	public static final int greenBrickStairsID = 2539;
@@ -64,13 +64,13 @@ public class Ids {
 	public static final int lightBlueBrickStairsID = 620;
 	public static final int grayBrickStairsID = 621;
 	public static final int brownBrickStairsID = 622;
-	
+
 	public static final int marbleStairsID = 625;
 	public static final int marbleRailing = 626;
 	public static final int blackMarbleID = 627;
 	public static final int blackMarbleStairsID = 628;
 	public static final int blackMarbleRailingID = 629;
-	
+
 	public static final int fueltoniumBlockID = 565;
 	public static final int blockOfFueltoniumID = 566;
 	public static final int betterGlassID = 600;
@@ -80,7 +80,7 @@ public class Ids {
 	public static final int marbleBlockID = 2534;
 	public static final int shineStoneID = 2535;
 	public static final int shineTorchID = 2536;
-	
+
 	public static final int swampClayID = 231;
 	public static final int seaLampID = 2590;
 	public static final int enderSPCOreID = 2591;
@@ -155,7 +155,17 @@ public class Ids {
 	public static final int venusCobbleID = 2653;
 	public static final int venusMossyCobbleID = 2654;
 	public static final int venusRockBrickID = 2655;
-	
+	public static final int zincBlockOreID = 1764;
+	public static final int zincBlockID = 3500;
+	public static final int copperBlockOreID = 2658;
+	public static final int copperBlockID = 2659;
+	public static final int bronzeBlockOreID = 2660;
+	public static final int bronzeBlockID = 2661;
+	public static final int leadOreID = 2662;
+	public static final int ferrousOreID = 2663;
+	public static final int silverOreID = 2664;
+	public static final int tinOreID = 2665;
+
 	public static final int fuelIngotID = 16109;
 	public static final int friedEggID = 16110;
 	public static final int heartID = 16111;
@@ -191,4 +201,12 @@ public class Ids {
 	public static final int enderShardID = 16321;
 	public static final int shrimpRawID = 16322;
 	public static final int shrimpCookedID = 16323;
+	public static final int zincIngotID = 16324;
+	public static final int copperIngotID = 16325;
+	public static final int copperDustID = 16326;
+	public static final int zincDustID = 16327;
+	public static final int powerRodID = 16328;
+	public static final int powerSwordID = 16329;
+	public static final int bronzeIngotID = 16330;
+	public static final int bronzeDustID = 16331;
 }
